@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title> Index </title>
+        <style> 
+            .box {
+                background-color: darkcyan;
+                height: 20px;
+                width: auto;
+             } 
+            [v-cloak] {
+                display: none;
+            }
+        </style>
+    </head> 
+    <body> 
+        <div id="body" class="box" v-cloak>
+            {{ description }}
+            <input v-model="description"/>
+            <hr />
+
+        </div>
+
+        <script src="https://unpkg.com/vue@next"> </script>
+        <script>
+            let body = Vue.createApp( {
+                data: function() {
+                    return {
+                        description: 'This is body'
+                    }
+                }
+            } )
+            body.mount('#body')
+        </script>
+    </body>  
+</html>
