@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title> Example Login Form </title>
+        <style> 
+            .box1 {
+                background-color: darkcyan;
+                height: 200px;
+                width: 200px;
+             }
+             .box2 {
+                background-color: lightblue;
+                height: 200px;
+                width: 200px;
+             } 
+             .box3 {
+                background-color: goldenrod;
+                height: 200px;
+                width: 200px;
+             } 
+            [v-cloak] {
+                display: none;
+            }
+            input {
+                margin: 5px;
+                display: block;
+            }
+        </style>
+    </head> 
+    <body id="body" v-cloak> 
+        <login-form>
+
+            <hr/>
+        </login-form>
+        <script src="https://unpkg.com/vue@next"> </script>
+        <script>
+            let body = Vue.createApp( {
+                data: function() {
+                    return {
+                        description: 'This is body, you can change this text',
+                        toggle1: false,
+                        toggle2: false,
+
+                        isVisible: false
+                    }
+                },
+                methods: { 
+                    toggleBox() { //Toggle Box Method
+                        this.isVisible = !this.isVisible
+                    },
+                    print(input) {
+                        console.log(input)
+                    }
+                }
+            } )
+            
+            body.component('login-form', { //Define template for <login-form>
+                template: // Use .prevent to stop default web behavior
+                `   <form @submit.prevent="handleSubmit"> 
+                        <h1>{{title}}</h1>
+                        Email <input type="email" v-model="email" /> <br>
+                        Password <input type="password" v-model="password"/> <br>
+                        <button>Log In</button>
+                    </form> 
+                `,
+                data() { //Define data in this form
+                    return {
+                        title: 'Login Form',
+                        email: '', password: ''
+                    }
+                },
+                methods: {
+                    handleSubmit() {
+                        console.log('data submitted')
+                        console.log(this.email + '' + this.password)
+                    }
+                }
+            })
+
+            body.mount('#body')
+        </script>
+    </body>  
+</html>
