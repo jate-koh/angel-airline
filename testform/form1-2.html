@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title> Example Login Form /w Child </title>
+        <style> 
+            .box1 {
+                background-color: darkcyan;
+                height: 200px;
+                width: 200px;
+             }
+             .box2 {
+                background-color: lightblue;
+                height: 200px;
+                width: 200px;
+             } 
+             .box3 {
+                background-color: goldenrod;
+                height: 200px;
+                width: 200px;
+             } 
+            [v-cloak] {
+                display: none;
+            }
+            input {
+                margin: 5px;
+                display: block;
+            }
+        </style>
+    </head> 
+    <body id="body" v-cloak> 
+        <login-form>
+
+            <hr/>
+        </login-form>
+        <script src="https://unpkg.com/vue@next"> </script>
+        <script>
+            let body = Vue.createApp( {
+                data: function() {
+                    return {
+                        description: 'This is body, you can change this text',
+                        toggle1: false,
+                        toggle2: false,
+
+                        isVisible: false
+                    }
+                },
+                methods: { 
+                    toggleBox() { //Toggle Box Method
+                        this.isVisible = !this.isVisible
+                    },
+                    print(input) {
+                        console.log(input)
+                    }
+                }
+            } )
+            
+            body.component('login-form', {
+                template: //v-bind change html attribute into readable javascript
+                //shortcut for v-bind is :
+                `   <form @submit.prevent="handleSubmit"> 
+                        <h1>{{title}}</h1>
+                        <custom-input v-model="email" v-bind:label="em_label" /> <br>
+                        <custom-input v-model="password" :label="pw_label" /> <br>
+                        <button>Log In</button>
+                    </form> 
+                `,
+                components: ['custom-input'], //List all child component as array in parent
+                data() { 
+                    return {
+                        title: 'Login Form', email: '', password: '',
+                        em_label: 'Email', pw_label: 'Password' //Labels for passing into child
+                    }
+                },
+                methods: {
+                    handleSubmit() {
+                        console.log('data submitted')
+                        console.log(this.email + ' ' + this.password)
+                    }
+                }
+            })
+
+            body.component('custom-input', { //Child component of <login-form>
+                template:
+                `   <label>
+                        {{label}}
+                        <input type="text" v-model="inputValue"/>
+                    </label>
+                `,
+                props: ['label','modelValue'], //List all data that got pass from parent as array
+                //modelValue is automatically filled when v-model is called (in LINE 62-63)
+                computed: { //use 'computed' to send value from child to parent
+                    inputValue: {
+                        get() {
+                            return this.modelValue
+                        },
+                        set(value) {
+                            //console.log(value)
+                            this.$emit('update:modelValue', value) //$emit spark an event
+                            //by $emit Vue's command 'update' it make v-model (in LINE 62-63) change its value
+                        }
+                    }
+                }
+                //data() {
+                //    return {
+                //        value: ''
+                //    }
+                //}
+            })
+
+            body.mount('#body')
+        </script>
+    </body>  
+</html>
