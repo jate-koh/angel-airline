@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title>Example Login Form /w Loops</title>
+        <style> 
+            .box1 {
+                background-color: darkcyan;
+                height: 200px;
+                width: 200px;
+             }
+             .box2 {
+                background-color: lightblue;
+                height: 200px;
+                width: 200px;
+             } 
+             .box3 {
+                background-color: goldenrod;
+                height: 200px;
+                width: 200px;
+             } 
+            [v-cloak] {
+                display: none;
+            }
+            input {
+                margin: 5px;
+                display: block;
+            }
+        </style>
+    </head> 
+    <body id="body" v-cloak> 
+        <login-form>
+            <hr/>
+        </login-form>
+        <script src="https://unpkg.com/vue@next"> </script>
+        <script>
+            let body = Vue.createApp( {
+                data: function() {
+                    return {
+                        description: 'This is body, you can change this text',
+                        toggle1: false,
+                        toggle2: false,
+
+                        isVisible: false
+                    }
+                },
+                methods: { 
+                    toggleBox() { //Toggle Box Method
+                        this.isVisible = !this.isVisible
+                    },
+                    print(input) {
+                        console.log(input)
+                    }
+                }
+            })
+            body.component('login-form', {
+                template:
+                `   <form @submit.prevent="handleSubmit"> 
+                        <h1>{{title}}</h1>
+                        <custom-input 
+                            v-for="(itr,i) in inputs"
+                            :key="i"
+                            v-model="itr.value" 
+                            :label="itr.label"
+                            :type="itr.type" 
+                        />
+                        <button>Log In</button>
+                    </form> 
+                `,
+                components: ['custom-input'],
+                data() { 
+                    return {
+                        title: 'Login Form',
+                        inputs: [
+                            {label: 'Email', value: '', type:'email'},
+                            {label: 'Password', value: '', type:'password'}
+                        ]
+                    }
+                },
+                methods: {
+                    handleSubmit() {
+                        console.log('data submitted')
+                        console.log(this.inputs[0].value + ' ' + this.inputs[1].value)
+                    }
+                }
+            })
+            body.component('custom-input', {
+                template:
+                `   <label>
+                        {{label}}
+                        <input type="type" v-model="inputValue"/>
+                    </label>
+                `,
+                props: ['label','type','modelValue'], 
+                computed: {
+                    inputValue: {
+                        get() {
+                            return this.modelValue
+                        },
+                        set(value) {
+                            this.$emit('update:modelValue', value)
+                        }
+                    }
+                }
+                //data() {
+                //    return {
+                //        value: ''
+                //    }
+                //}
+            })
+            body.mount('#body')
+        </script>
+    </body>  
+</html>
