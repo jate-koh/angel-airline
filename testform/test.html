@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html> 
     <head> 
-        <title> Index </title>
+        <title> This is title </title>
         <style> 
             .box {
                 background-color: darkcyan;
-                height: 20px;
-                width: auto;
+                height: 200px;
+                width: 200px;
              } 
             [v-cloak] {
                 display: none;
             }
         </style>
     </head> 
-    <body> 
-        <div id="body" class="box" v-cloak>
+    <body id="body" v-cloak> 
+        <div>
             {{ description }}
-            <input v-model="description"/>
             <hr />
+        </div>
+        
+        <div>
+            Name <input v-model=""/>
+            Surname <input v-model=""/> <br>
+            Sex <input v-model=""/> <br>
+            <hr />
+        </div>
 
+        <div> 
+            <button v-on:click="isVisible = !isVisible">Button 1</button>
+            <div v-if="isVisible" class="box"> </div>
         </div>
 
         <script src="https://unpkg.com/vue@next"> </script>
@@ -26,7 +36,8 @@
             let body = Vue.createApp( {
                 data: function() {
                     return {
-                        description: 'This is body'
+                        description: 'This is body',
+                        isVisible: false
                     }
                 }
             } )
