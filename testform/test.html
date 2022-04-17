@@ -3,8 +3,18 @@
     <head> 
         <title> This is title </title>
         <style> 
-            .box {
+            .box1 {
                 background-color: darkcyan;
+                height: 200px;
+                width: 200px;
+             }
+             .box2 {
+                background-color: lightblue;
+                height: 200px;
+                width: 200px;
+             } 
+             .box3 {
+                background-color: goldenrod;
                 height: 200px;
                 width: 200px;
              } 
@@ -15,20 +25,30 @@
     </head> 
     <body id="body" v-cloak> 
         <div>
-            {{ description }}
+            {{ description }} <br>
+            Press Enter to send text to Console
+            <input @keyup.enter="print(description+ '!')" v-model ="description"/>
             <hr />
         </div>
-        
+        <!-- Simple Form Test -->
         <div>
             Name <input v-model=""/>
             Surname <input v-model=""/> <br>
             Sex <input v-model=""/> <br>
             <hr />
         </div>
-
+        <!-- Button -->
         <div> 
-            <button v-on:click="isVisible = !isVisible">Button 1</button>
-            <div v-if="isVisible" class="box"> </div>
+            <button v-on:click="toggle1 = !toggle1">Button 1</button><br>
+            <button v-on:click="toggle2 = !toggle2">Button 2</button><br>
+            <div v-if="toggle1" class="box1"> </div>
+            <div v-else-if="toggle2" class="box2"></div>
+            <hr />
+        </div>
+        <!-- Button /w Method-->
+        <div> 
+            <button @click="toggleBox">Button 1</button><br>
+            <div v-if="isVisible" class="box1"> </div>
         </div>
 
         <script src="https://unpkg.com/vue@next"> </script>
@@ -36,8 +56,19 @@
             let body = Vue.createApp( {
                 data: function() {
                     return {
-                        description: 'This is body',
+                        description: 'This is body, you can change this text',
+                        toggle1: false,
+                        toggle2: false,
+
                         isVisible: false
+                    }
+                },
+                methods: { 
+                    toggleBox() { //Toggle Box Method
+                        this.isVisible = !this.isVisible
+                    },
+                    print(input) {
+                        console.log(input)
                     }
                 }
             } )
