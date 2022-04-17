@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title>Testing Hooks</title>
+        <style> 
+            .box1 {
+                background-color: darkcyan;
+                height: 200px;
+                width: 200px;
+             }
+             .box2 {
+                background-color: lightblue;
+                height: 200px;
+                width: 200px;
+             } 
+             .box3 {
+                background-color: goldenrod;
+                height: 200px;
+                width: 200px;
+             } 
+            [v-cloak] {
+                display: none;
+            }
+        </style>
+    </head> 
+    <body id="body" v-cloak> 
+        <div> 
+            <button @click="toggleBox">Button 1</button>
+            <button @click="upValue">Button 2</button>
+            <test-box v-if="isVisible" />
+        </div>
+
+        <script src="https://unpkg.com/vue@next"> </script>
+        <script>
+            let body = Vue.createApp( {
+                data: function() {
+                    return {
+                        description: 'This is body, you can change this text',
+                        isVisible: false,
+                        bool: true
+                    }
+                },
+                methods: { 
+                    toggleBox() { //Toggle Box Method
+                        this.isVisible = !this.isVisible
+                    },
+                    upValue() {
+                        this.bool = !this.bool
+                        console.log('Bool: '+ this.bool)
+                    },
+                    print(input) {
+                        console.log(input)
+                    }
+                },
+                updated() { //show updated when data is changed
+                    console.log('updated')
+                }
+            } )
+            body.component('test-box', {
+                template: 
+                `
+                    <div class="box3"></div>
+                `,
+                //Following lines are lifecycle
+                created() {
+                    console.log('created')
+                },
+                mounted() {
+                    console.log('mounted')
+                },
+                unmounted() {
+                    console.log('destroyed')
+                }
+            })
+            body.mount('#body')
+        </script>
+    </body>  
+</html>
