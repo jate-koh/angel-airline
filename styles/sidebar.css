@@ -1,0 +1,48 @@
+@import url('http://fonts.cdnfonts.com/css/baskerville');
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baskerville', sans-serif;
+}
+.wrapper .sidebar {
+    background: palevioletred;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+.wrapper .sidebar ul li a {
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid pink;
+    color: white;
+    font-family: 'Baskerville', sans-serif;
+    font-size: 18px;
+    position: relative;
+}
+.wrapper .sidebar ul li a .icon {
+    color: white;
+    width: 1px;
+    display: inline-block;
+}
+
+/* Hovering */
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active {
+    background: pink;
+}
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon {
+    color: pink;
+}
+
+.wrapper .sidebar ul li a::before,
+.wrapper .sidebar ul li a.active::before {
+    display: block;
+}

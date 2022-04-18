@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
+        <link rel="stylesheet" type="text/css" href="styles\home.css" />
+        <link rel="stylesheet" type="text/css" href="styles\sidebar.css">
+    </head>
+    
+    <header class="topbox"> </header>
+    
+    <body id="body" v-cloak>
+        <!-- Side menu bar -->
+        <div class="wrapper">
+            <div class="sidebar"> 
+                <ul>
+                    <li><a href="#">
+                        <span class="icon"></span>
+                        <span class="item">Home</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span class="item">My Booking</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span class="item">Flight Status</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span class="item">Book Ticket</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span class="item">Contact Us</span>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Top menu bar -->
+
+    
+    </body>
+    <footer class="bottombox">
+        <h2> created by JK. 2022 </h2>
+    </footer>
+
+    <!-- Vue Script -->
+    <script src="https://unpkg.com/vue@next"> </script>
+        <script>
+            let body = Vue.createApp( {
+                data: function() {
+                    return {
+                        
+                    }
+                },
+                methods: { 
+                    print(input) {
+                        console.log(input)
+                    }
+                }
+            } )
+            
+            body.component('login-form', { 
+                template: 
+                `   
+                `,
+                data() { 
+                    return {
+                        
+                    }
+                },
+                methods: {
+
+                }
+            })
+
+            body.mount('#body')
+        </script>
+</html>

@@ -1,0 +1,62 @@
+@import url('http://fonts.cdnfonts.com/css/baskerville');
+.bottombox {
+  background-color: pink;
+  opacity: 0.8;
+  height: auto;
+  width: 100%;
+  padding: 0px;
+  margin: -10px;
+  bottom: 0px;
+  position: fixed;
+  text-align: right;
+}
+.topbox {
+  background-color: lightpink;
+  opacity: 0.7;
+  height: 3%;
+  width: 100%;
+  padding: 30px;
+  margin: -10px;
+  top: 0px;
+  position: fixed;
+  text-align: center;
+}
+h1 { /* Top Header */
+  color: white;
+  font-family: 'Baskerville', sans-serif;
+  font-size: 300%;
+  }
+
+h2 { /* Bottom Footer */
+  color: white;
+  font-family: 'Baskerville', sans-serif;;
+  font-size: 100%;
+  padding: 1px;
+  margin: 10px;
+  }
+/* Reserved */
+h3 {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 280%;
+  padding: 30px;
+  margin: 100px;
+}
+h4 {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 240%;
+  padding: 30px;
+  margin: 100px;
+}
+h5 {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 180%;
+  padding: 30px;
+  margin: 100px;
+}
+
+[v-cloak] {
+    display: none;
+}
