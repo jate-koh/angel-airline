@@ -1,46 +1,89 @@
-h1 { /* Top Header */
-  color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 300%;
-  }
+.bottombox {
+  background-color: pink;
+  height: auto;
+  width: 100%;
+  padding: 0px;
+  margin: -10px;
+  bottom: 0px;
+  position: fixed;
+  text-align: right;
+}
 .topbox {
   background-color: lightpink;
+  opacity: 0.5;
   height: auto;
   width: auto;
   padding: 30px;
   margin: -10px;
   text-align: center;
 }
+h1 { /* Top Header */
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 300%;
+  }
+
 h2 { /* Bottom Footer */
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 100%;
+  padding: 1px;
+  margin: 10px;
   }
-.bottombox {
-  background-color: pink;
-  height: auto;
-  width: 98%;
-  padding: 30px;
-  margin: -10px;
-  bottom: 0px;
-  position: fixed;
-  text-align: right;
-}
+/* Reserved */
 h3 {
   color: black;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 280%;
+  padding: 30px;
+  margin: 100px;
 }
 h4 {
   color: black;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 240%;
-}
-p {
-  color: black;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 180%;
-  border: 10px solid pink;
   padding: 30px;
   margin: 100px;
+}
+h5 {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 180%;
+  padding: 30px;
+  margin: 100px;
+}
+
+/* Input */
+.field1 {
+  border: 2px solid black;
+  outline: none;
+  padding: 5px;
+  width: 50%;
+}
+.field2 {
+  border: 2px solid black;
+  outline: none;
+  padding: 5px;
+  width: 20%;
+}
+.legend1 { /*Name of field <legend> */
+
+}
+.input1 { /* Plain text box <input> */
+  border: none;
+  outline: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+}
+
+/* Div */
+.div-1 {
+  border: 3px;
+  margin: 100px;
+  padding: 30px;
+}
+
+
+[v-cloak] {
+  display: none;
 }
