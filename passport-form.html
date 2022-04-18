@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
+        <link rel="stylesheet" type="text/css" href="styles\form.css" />
+    </head>
+    <header>
+        <h1 class="topbox"> FallenAngel Airline </h1>
+    </header>
+    <body id="body" v-cloak>
+        <field-input> </field-input>
+        <!-- <div class="div-2">
+            <fieldset class="field1">
+                <legend class="legend1">Name</legend>
+                <input class="input1" type="text" v-model="name" placeholder="Enter your Name">
+            </fieldset> <br>
+            <fieldset class="field1">
+                <legend class="legend1">Surname</legend>
+                <input class="input1" type="text" id="surname" placeholder="Enter your Surname">
+            </fieldset> <br>
+            <fieldset class="field2">
+                <legend class="legend1">Class</legend>
+                <input class="input1" type="text" id="class" placeholder="Enter your Class">
+            </fieldset> <br>
+        </div>  -->
+    </body>
+    <footer class="bottombox" v-cloak>
+        <h2> created by JK. 2022 </h2>
+    </footer>
+
+    <!-- Vue Script -->
+    <script src="https://unpkg.com/vue@next"> </script>
+        <script>
+            let body = Vue.createApp( {
+                data: function() {
+                    return {
+                        input:''
+                    }
+                },
+                methods: { 
+                    print(input) {
+                        console.log(input)
+                    }
+                }
+            } )
+            
+            body.component('field-input', {
+                template:
+                `   <div class="div-2">
+                        <child-field-input 
+                            v-for="(itr,i) in inputs"
+                            :key="i"
+                            v-model="itr.value"
+                            :legend="itr.legend"
+                            :type="itr.type"
+                            :placeholder="itr.placeholder"
+                        />
+                    </div>
+                `,
+                components: ['child-field-input'],
+                data() { 
+                    return {
+                        inputs: [ 
+                            {legend:'Name',value:'',type:'name',placeholder:'Enter your name'},
+                            {legend:'Surname',value:'',type:'name',placeholder:'Enter your surname'}
+                        ]
+                    }
+                },
+                methods: {
+                    
+                }
+            })
+            body.component('child-field-input', {
+                template:
+                `
+                    <fieldset class="field1">
+                        <legend class="legend1">{{legend}}</legend>
+                        <input class="input1" type="type" v-model="inputValue" placeholder="placeholder"/>
+                    </fieldset> <br>
+                `,
+                props: ['legend','type','placeholder','modelValue'],
+                computed: {
+                    inputValue: {
+                        get() {
+                            return this.modelValue
+                        },
+                        set(value) {
+                            this.$emit('update:modelValue', value)
+                        }
+                    }
+                }
+            })
+            body.mount('#body')
+        </script>
+</html>

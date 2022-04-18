@@ -1,5 +1,7 @@
+@import url('http://fonts.cdnfonts.com/css/baskerville');
 .bottombox {
   background-color: pink;
+  opacity: 0.8;
   height: auto;
   width: 100%;
   padding: 0px;
@@ -10,22 +12,24 @@
 }
 .topbox {
   background-color: lightpink;
-  opacity: 0.5;
+  opacity: 0.7;
   height: auto;
-  width: auto;
+  width: 100%;
   padding: 30px;
   margin: -10px;
+  top: 0px;
+  position: fixed;
   text-align: center;
 }
 h1 { /* Top Header */
   color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Baskerville', sans-serif;
   font-size: 300%;
   }
 
 h2 { /* Bottom Footer */
   color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Baskerville', sans-serif;;
   font-size: 100%;
   padding: 1px;
   margin: 10px;
@@ -54,32 +58,48 @@ h5 {
 }
 
 /* Input */
-.field1 {
+.field1 { /* Long box */
   border: 2px solid black;
   outline: none;
   padding: 5px;
   width: 50%;
 }
-.field2 {
+.field2 { /* Middle box */
   border: 2px solid black;
   outline: none;
   padding: 5px;
   width: 20%;
 }
+.field3 { /* Short box */
+  border: 2px solid black;
+  outline: none;
+  padding: 5px;
+  width: 10%;
+}
 .legend1 { /*Name of field <legend> */
-
+  font-family: 'Baskerville', sans-serif;
+  font-weight: bold;
 }
 .input1 { /* Plain text box <input> */
   border: none;
   outline: none;
+  fill: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 100%;
+  width: 90%;
 }
 
 /* Div */
-.div-1 {
-  border: 3px;
-  margin: 100px;
+.div-1 { /* No text form border */
+  border: 3px solid black;
+  width: 50%;
+  margin: 150px;
+  padding: 30px;
+}
+.div-2 { /* No text form border */
+  border: 3px solid black;
+  outline: none;
+  width: 50%;
+  margin: 150px;
   padding: 30px;
 }
 
