@@ -1,0 +1,97 @@
+@import url('http://fonts.cdnfonts.com/css/baskerville');
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baskerville', sans-serif;
+}
+
+/* SIDE MENU BAR */
+.wrapper .sidebar {
+    background: palevioletred;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 70px 0;
+    transition: all 0.5s ease;
+}
+.wrapper .sidebar ul li a {
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid pink;
+    color: white;
+    font-family: 'Baskerville', sans-serif;
+    font-size: 18px;
+    position: relative;
+}
+.wrapper .sidebar ul li a .icon {
+    color: white;
+    width: 30px;
+    display: inline-block;
+}
+
+/* Hovering */
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active {
+    background: pink;
+}
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon {
+    color: palevioletred;
+}
+
+.wrapper .sidebar ul li a::before,
+.wrapper .sidebar ul li a.active::before {
+    display: block;
+}
+
+/* TOP MENU BAR */
+.wrapper .topbar {
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+}
+.wrapper .topbar .navbar {
+    background-color: pink;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+.wrapper .topbar .navbar .threebars a {
+    font-size: 28px;
+    color: white;
+}
+.wrapper .topbar .navbar .threebars a:hover {
+    color: palevioletred;
+}
+/* HTML BODY IS ACTIVE */
+body.active .wrapper .sidebar {
+    left: -225px;
+}
+body.active .wrapper .topbar{
+    margin-left: 0;
+    width: 100%;
+}
+body.active .wrapper .bottombar{
+    margin-left: 0;
+    width: 100%;
+}
+
+/* BOTTOM BAR */
+.wrapper .bottombar {
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+    background-color: palevioletred;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px 30px;
+    text-align: right;
+} 
+

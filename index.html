@@ -1,54 +1,70 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
+<script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script>
 <html>
     <head>
         <title>Home</title>
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
         <link rel="stylesheet" type="text/css" href="styles\home.css" />
-        <link rel="stylesheet" type="text/css" href="styles\sidebar.css">
+        <link rel="stylesheet" type="text/css" href="styles\menubar.css">
     </head>
-    
-    <header class="topbox"> </header>
-    
-    <body id="body" v-cloak>
-        <!-- Side menu bar -->
-        <div class="wrapper">
-            <div class="sidebar"> 
-                <ul>
-                    <li><a href="#">
-                        <span class="icon"></span>
-                        <span class="item">Home</span>
-                    </a></li>
-                    <li><a href="#">
-                        <span class="item">My Booking</span>
-                    </a></li>
-                    <li><a href="#">
-                        <span class="item">Flight Status</span>
-                    </a></li>
-                    <li><a href="#">
-                        <span class="item">Book Ticket</span>
-                    </a></li>
-                    <li><a href="#">
-                        <span class="item">Contact Us</span>
-                    </a></li>
-                </ul>
+    <body>
+        <!-- Wrapper -->
+        <div id="app">
+            <div class="wrapper">
+                <!-- Side menu bar -->
+                <div class="sidebar"> 
+                    <ul>
+                        <li><a href="#">
+                            <span class="icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="item">Home</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="icon"><i class="fa-solid fa-book-bookmark"></i></span>
+                            <span class="item">My Booking</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="icon"><i class="fa-solid fa-plane"></i></span>
+                            <span class="item">Flight Status</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="icon"><i class="fa-solid fa-ticket"></i></span>
+                            <span class="item">Book Ticket</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="icon"><i class="fa-solid fa-address-book"></i></span>
+                            <span class="item">Contact Us</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <!-- Top menu bar -->
+                <div class="topbar">
+                    <div class="navbar">
+                        <div class="threebars">
+                            <a href="#"><i class="fa-solid fa-bars"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bottom bar  -->
+                <div class="bottombar">
+                    <h2>Designed by SR., Created by JK., 2022</h2>
+                </div>
             </div>
         </div>
-        <!-- Top menu bar -->
-
-    
-    </body>
-    <footer class="bottombox">
-        <h2> created by JK. 2022 </h2>
-    </footer>
-
-    <!-- Vue Script -->
+        <!-- Bar Script (Awaiting Conversion to Vue) -->
+        <script>
+            var threebars = document.querySelector(".threebars");
+            threebars.addEventListener("click", function() {
+                document.querySelector("body").classList.toggle("active"); 
+            })
+        </script>
+    <!-- Vue Script
     <script src="https://unpkg.com/vue@next"> </script>
         <script>
-            let body = Vue.createApp( {
+            let app = Vue.createApp( {
                 data: function() {
                     return {
-                        
+                    
                     }
                 },
                 methods: { 
@@ -57,21 +73,21 @@
                     }
                 }
             } )
-            
-            body.component('login-form', { 
+        
+            app.component('login-form', { 
                 template: 
                 `   
                 `,
                 data() { 
                     return {
-                        
+                    
                     }
                 },
                 methods: {
 
                 }
             })
-
-            body.mount('#body')
-        </script>
+            app.mount('#app')
+        </script> -->
+    </body>
 </html>
