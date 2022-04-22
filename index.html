@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script>
 <html>
     <head>
@@ -58,36 +60,35 @@
                 document.querySelector("body").classList.toggle("active"); 
             })
         </script>
-    <!-- Vue Script
-    <script src="https://unpkg.com/vue@next"> </script>
-        <script>
-            let app = Vue.createApp( {
-                data: function() {
-                    return {
+    <!-- Vue Script 
+    <script>
+        let app = Vue.createApp( {
+            data: function() {
+                return {
                     
-                    }
-                },
-                methods: { 
-                    print(input) {
-                        console.log(input)
-                    }
                 }
-            } )
+            },
+            methods: { 
+                print(input) {
+                    console.log(input)
+                }
+            }
+        } )
         
-            app.component('login-form', { 
-                template: 
-                `   
-                `,
-                data() { 
-                    return {
+        app.component('login-form', { 
+            template: 
+            `   
+            `,
+            data() { 
+                return {
                     
-                    }
-                },
-                methods: {
-
                 }
-            })
-            app.mount('#app')
-        </script> -->
+            },
+            methods: {
+
+            }
+        })
+        app.mount('#app')
+    </script> -->
     </body>
 </html>
