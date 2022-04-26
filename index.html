@@ -7,12 +7,12 @@
     <head>
         <title>Home</title>
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
-        <link rel="stylesheet" type="text/css" href="styles\home.css" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
+        <link rel="stylesheet" href="styles\bg2.css"> <!-- Apply Bg Image -->
     </head>
     <body class="active">
         <!-- Wrapper -->
-        <div id="app">
+        <div>
             <div class="wrapper">
                 <!-- Side menu bar -->
                 <div class="sidebar"> 
@@ -42,14 +42,19 @@
                 <!-- Top menu bar -->
                 <div class="topbar">
                     <div class="navbar">
+                        <!-- 
                         <div class="threebars">
                             <a href="#"><i class="fa-solid fa-bars"></i></a>
-                        </div>
+                        </div> -->
+                        <ul>
+                            <li class="threebars"><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
                     </div>
                 </div>
                 <!-- Bottom bar  -->
                 <div class="bottombar">
-                    <h2>Designed by SR., Created by JK., 2022</h2>
+                    <h1>Designed by SR., Created by JK., 2022</h1>
                 </div>
             </div>
         </div>
@@ -60,7 +65,10 @@
                 document.querySelector("body").classList.toggle("active"); 
             })
         </script>
-    <!-- Vue Script 
+    </body>
+</html>
+
+<!-- Vue Script 
     <script>
         let app = Vue.createApp( {
             data: function() {
@@ -90,5 +98,3 @@
         })
         app.mount('#app')
     </script> -->
-    </body>
-</html>

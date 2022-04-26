@@ -1,6 +1,6 @@
 <?php
  //Database Connection
- $conn = new mysqli('localhost','a9_cpe231_a9','jk17jk17','a9_Angel_Airline');
+ $conn = new mysqli('localhost','a9_cpe231_a9','','a9_Angel_Airline');
  if($conn -> connect_error) {
     die('connection failed. '.$conn -> connect_error);
  }

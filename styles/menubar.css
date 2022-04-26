@@ -10,7 +10,8 @@
 
 /* SIDE MENU BAR */
 .wrapper .sidebar {
-    background: palevioletred;
+    background: black;
+    opacity: 0.75;
     position: fixed;
     top: 0;
     left: 0;
@@ -22,7 +23,7 @@
 .wrapper .sidebar ul li a {
     display: block;
     padding: 13px 30px;
-    border-bottom: 1px solid pink;
+    border-bottom: 1px solid white;
     color: white;
     font-family: 'Baskerville', sans-serif;
     font-size: 18px;
@@ -37,11 +38,15 @@
 /* Hovering */
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active {
-    background: pink;
+    background: rgb(179, 179, 179);
 }
 .wrapper .sidebar ul li a:hover .icon,
 .wrapper .sidebar ul li a.active .icon {
-    color: palevioletred;
+    color: black;
+}
+.wrapper .sidebar ul li a:hover .item,
+.wrapper .sidebar ul li a.active .item {
+    color: black;
 }
 
 .wrapper .sidebar ul li a::before,
@@ -56,7 +61,8 @@
     transition: all 0.5s ease;
 }
 .wrapper .topbar .navbar {
-    background-color: pink;
+    background-color: black;
+    opacity: 0.5;
     height: 50px;
     display: flex;
     align-items: center;
@@ -67,7 +73,7 @@
     color: white;
 }
 .wrapper .topbar .navbar .threebars a:hover {
-    color: palevioletred;
+    color: grey;
 }
 /* HTML BODY IS ACTIVE */
 body.active .wrapper .sidebar {
@@ -87,11 +93,17 @@ body.active .wrapper .bottombar{
     width: calc(100% - 225px);
     margin-left: 225px;
     transition: all 0.5s ease;
-    background-color: palevioletred;
-    position: absolute;
+    background-color: black;
+    opacity: 0.75;
+    position: fixed;
     bottom: 0;
     left: 0;
     padding: 5px 30px;
     text-align: right;
 } 
+.wrapper .bottombar h1 {
+    color: white;
+    font-family: 'Baskerville', sans-serif;
+    font-size: 160%;
+}
 
