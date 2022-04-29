@@ -5,15 +5,15 @@
 <script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script>
 <html>
     <head>
-        <title>Booking</title>
+        <title>Home</title>
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
-        <link rel="stylesheet" type="text/css" href="styles\home.css" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
         <link rel="stylesheet" type="text/css" href="styles\form.css">
+        <link rel="stylesheet" href="styles\bg2.css"> <!-- Apply Bg Image -->
     </head>
     <body class="active">
         <!-- Wrapper -->
-        <div id="app">
+        <div>
             <div class="wrapper">
                 <!-- Side menu bar -->
                 <div class="sidebar"> 
@@ -42,15 +42,29 @@
                 </div>
                 <!-- Top menu bar -->
                 <div class="topbar">
-                    <div class="navbar">
+                    <div class="content">
                         <div class="threebars">
                             <a href="#"><i class="fa-solid fa-bars"></i></a>
                         </div>
+                        <div class="logo">
+                            <!-- <img src="/img/logo/long-logo-pink.png"> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="content">
+                        <ul>
+                            <li><a href="#"><span>Flights</span></a></li>
+                            <li><a href="#"><span>My Booking</span></a></li>
+                            <li><a href="#"><span>Flight Status</span></a></li>
+                            <li><a href="#"><span>Book Ticket</span></a></li>
+                            <li><a href="#"><span>Login/Sign Up</span></a></li>
+                        </ul> 
                     </div>
                 </div>
                 <!-- Bottom bar  -->
                 <div class="bottombar">
-                    <h2>Designed by SR., Created by JK., 2022</h2>
+                    <h1>Designed by SR., Created by JK., 2022</h1>
                 </div>
             </div>
         </div>
@@ -61,320 +75,67 @@
                 document.querySelector("body").classList.toggle("active"); 
             })
         </script>
-
-
-        <!-- Form -->
-        <form action="connect-passenger.php" method="post">
-            <field-input> </field-input>
-            <div class="div-2">
-                <fieldset class="field0">
-                    <legend class="legend1">Passport Info</legend>
-                    <fieldset class="field1">
-                        <legend class="legend1">Passport Number</legend>
-                        <input class="input1" type="text" id="passportno" name="passportno" placeholder="Enter your Passport Number">
-                    </fieldset> <br>
-                    <fieldset class="field1">
-                        <legend class="legend1">Passport Expiry Date</legend>
-                        <input class="input1" type="date" id="passportexp" name="passportexp">
-                    </fieldset> <br>
-                    <fieldset class="field2">
-                        <legend class="legend1">Nationality</legend>
-                        <select class="input2" name="nationality" id="nationality">
-                            <option value="">-- select one --</option>
-                            <option value="afghan">Afghan</option>
-                            <option value="albanian">Albanian</option>
-                            <option value="algerian">Algerian</option>
-                            <option value="american">American</option>
-                            <option value="andorran">Andorran</option>
-                            <option value="angolan">Angolan</option>
-                            <option value="antiguans">Antiguans</option>
-                            <option value="argentinean">Argentinean</option>
-                            <option value="armenian">Armenian</option>
-                            <option value="australian">Australian</option>
-                            <option value="austrian">Austrian</option>
-                            <option value="azerbaijani">Azerbaijani</option>
-                            <option value="bahamian">Bahamian</option>
-                            <option value="bahraini">Bahraini</option>
-                            <option value="bangladeshi">Bangladeshi</option>
-                            <option value="barbadian">Barbadian</option>
-                            <option value="barbudans">Barbudans</option>
-                            <option value="batswana">Batswana</option>
-                            <option value="belarusian">Belarusian</option>
-                            <option value="belgian">Belgian</option>
-                            <option value="belizean">Belizean</option>
-                            <option value="beninese">Beninese</option>
-                            <option value="bhutanese">Bhutanese</option>
-                            <option value="bolivian">Bolivian</option>
-                            <option value="bosnian">Bosnian</option>
-                            <option value="brazilian">Brazilian</option>
-                            <option value="british">British</option>
-                            <option value="bruneian">Bruneian</option>
-                            <option value="bulgarian">Bulgarian</option>
-                            <option value="burkinabe">Burkinabe</option>
-                            <option value="burmese">Burmese</option>
-                            <option value="burundian">Burundian</option>
-                            <option value="cambodian">Cambodian</option>
-                            <option value="cameroonian">Cameroonian</option>
-                            <option value="canadian">Canadian</option>
-                            <option value="cape verdean">Cape Verdean</option>
-                            <option value="central african">Central African</option>
-                            <option value="chadian">Chadian</option>
-                            <option value="chilean">Chilean</option>
-                            <option value="chinese">Chinese</option>
-                            <option value="colombian">Colombian</option>
-                            <option value="comoran">Comoran</option>
-                            <option value="congolese">Congolese</option>
-                            <option value="costa rican">Costa Rican</option>
-                            <option value="croatian">Croatian</option>
-                            <option value="cuban">Cuban</option>
-                            <option value="cypriot">Cypriot</option>
-                            <option value="czech">Czech</option>
-                            <option value="danish">Danish</option>
-                            <option value="djibouti">Djibouti</option>
-                            <option value="dominican">Dominican</option>
-                            <option value="dutch">Dutch</option>
-                            <option value="east timorese">East Timorese</option>
-                            <option value="ecuadorean">Ecuadorean</option>
-                            <option value="egyptian">Egyptian</option>
-                            <option value="emirian">Emirian</option>
-                            <option value="equatorial guinean">Equatorial Guinean</option>
-                            <option value="eritrean">Eritrean</option>
-                            <option value="estonian">Estonian</option>
-                            <option value="ethiopian">Ethiopian</option>
-                            <option value="fijian">Fijian</option>
-                            <option value="filipino">Filipino</option>
-                            <option value="finnish">Finnish</option>
-                            <option value="french">French</option>
-                            <option value="gabonese">Gabonese</option>
-                            <option value="gambian">Gambian</option>
-                            <option value="georgian">Georgian</option>
-                            <option value="german">German</option>
-                            <option value="ghanaian">Ghanaian</option>
-                            <option value="greek">Greek</option>
-                            <option value="grenadian">Grenadian</option>
-                            <option value="guatemalan">Guatemalan</option>
-                            <option value="guinea-bissauan">Guinea-Bissauan</option>
-                            <option value="guinean">Guinean</option>
-                            <option value="guyanese">Guyanese</option>
-                            <option value="haitian">Haitian</option>
-                            <option value="herzegovinian">Herzegovinian</option>
-                            <option value="honduran">Honduran</option>
-                            <option value="hungarian">Hungarian</option>
-                            <option value="icelander">Icelander</option>
-                            <option value="indian">Indian</option>
-                            <option value="indonesian">Indonesian</option>
-                            <option value="iranian">Iranian</option>
-                            <option value="iraqi">Iraqi</option>
-                            <option value="irish">Irish</option>
-                            <option value="israeli">Israeli</option>
-                            <option value="italian">Italian</option>
-                            <option value="ivorian">Ivorian</option>
-                            <option value="jamaican">Jamaican</option>
-                            <option value="japanese">Japanese</option>
-                            <option value="jordanian">Jordanian</option>
-                            <option value="kazakhstani">Kazakhstani</option>
-                            <option value="kenyan">Kenyan</option>
-                            <option value="kittian and nevisian">Kittian and Nevisian</option>
-                            <option value="kuwaiti">Kuwaiti</option>
-                            <option value="kyrgyz">Kyrgyz</option>
-                            <option value="laotian">Laotian</option>
-                            <option value="latvian">Latvian</option>
-                            <option value="lebanese">Lebanese</option>
-                            <option value="liberian">Liberian</option>
-                            <option value="libyan">Libyan</option>
-                            <option value="liechtensteiner">Liechtensteiner</option>
-                            <option value="lithuanian">Lithuanian</option>
-                            <option value="luxembourger">Luxembourger</option>
-                            <option value="macedonian">Macedonian</option>
-                            <option value="malagasy">Malagasy</option>
-                            <option value="malawian">Malawian</option>
-                            <option value="malaysian">Malaysian</option>
-                            <option value="maldivan">Maldivan</option>
-                            <option value="malian">Malian</option>
-                            <option value="maltese">Maltese</option>
-                            <option value="marshallese">Marshallese</option>
-                            <option value="mauritanian">Mauritanian</option>
-                            <option value="mauritian">Mauritian</option>
-                            <option value="mexican">Mexican</option>
-                            <option value="micronesian">Micronesian</option>
-                            <option value="moldovan">Moldovan</option>
-                            <option value="monacan">Monacan</option>
-                            <option value="mongolian">Mongolian</option>
-                            <option value="moroccan">Moroccan</option>
-                            <option value="mosotho">Mosotho</option>
-                            <option value="motswana">Motswana</option>
-                            <option value="mozambican">Mozambican</option>
-                            <option value="namibian">Namibian</option>
-                            <option value="nauruan">Nauruan</option>
-                            <option value="nepalese">Nepalese</option>
-                            <option value="new zealander">New Zealander</option>
-                            <option value="ni-vanuatu">Ni-Vanuatu</option>
-                            <option value="nicaraguan">Nicaraguan</option>
-                            <option value="nigerien">Nigerien</option>
-                            <option value="north korean">North Korean</option>
-                            <option value="northern irish">Northern Irish</option>
-                            <option value="norwegian">Norwegian</option>
-                            <option value="omani">Omani</option>
-                            <option value="pakistani">Pakistani</option>
-                            <option value="palauan">Palauan</option>
-                            <option value="panamanian">Panamanian</option>
-                            <option value="papua new guinean">Papua New Guinean</option>
-                            <option value="paraguayan">Paraguayan</option>
-                            <option value="peruvian">Peruvian</option>
-                            <option value="polish">Polish</option>
-                            <option value="portuguese">Portuguese</option>
-                            <option value="qatari">Qatari</option>
-                            <option value="romanian">Romanian</option>
-                            <option value="russian">Russian</option>
-                            <option value="rwandan">Rwandan</option>
-                            <option value="saint lucian">Saint Lucian</option>
-                            <option value="salvadoran">Salvadoran</option>
-                            <option value="samoan">Samoan</option>
-                            <option value="san marinese">San Marinese</option>
-                            <option value="sao tomean">Sao Tomean</option>
-                            <option value="saudi">Saudi</option>
-                            <option value="scottish">Scottish</option>
-                            <option value="senegalese">Senegalese</option>
-                            <option value="serbian">Serbian</option>
-                            <option value="seychellois">Seychellois</option>
-                            <option value="sierra leonean">Sierra Leonean</option>
-                            <option value="singaporean">Singaporean</option>
-                            <option value="slovakian">Slovakian</option>
-                            <option value="slovenian">Slovenian</option>
-                            <option value="solomon islander">Solomon Islander</option>
-                            <option value="somali">Somali</option>
-                            <option value="south african">South African</option>
-                            <option value="south korean">South Korean</option>
-                            <option value="spanish">Spanish</option>
-                            <option value="sri lankan">Sri Lankan</option>
-                            <option value="sudanese">Sudanese</option>
-                            <option value="surinamer">Surinamer</option>
-                            <option value="swazi">Swazi</option>
-                            <option value="swedish">Swedish</option>
-                            <option value="swiss">Swiss</option>
-                            <option value="syrian">Syrian</option>
-                            <option value="taiwanese">Taiwanese</option>
-                            <option value="tajik">Tajik</option>
-                            <option value="tanzanian">Tanzanian</option>
-                            <option value="thai">Thai</option>
-                            <option value="togolese">Togolese</option>
-                            <option value="tongan">Tongan</option>
-                            <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option>
-                            <option value="tunisian">Tunisian</option>
-                            <option value="turkish">Turkish</option>
-                            <option value="tuvaluan">Tuvaluan</option>
-                            <option value="ugandan">Ugandan</option>
-                            <option value="ukrainian">Ukrainian</option>
-                            <option value="uruguayan">Uruguayan</option>
-                            <option value="uzbekistani">Uzbekistani</option>
-                            <option value="venezuelan">Venezuelan</option>
-                            <option value="vietnamese">Vietnamese</option>
-                            <option value="welsh">Welsh</option>
-                            <option value="yemenite">Yemenite</option>
-                            <option value="zambian">Zambian</option>
-                            <option value="zimbabwean">Zimbabwean</option>
-                        </select>
-                    </fieldset> <br>
-                    <fieldset class="field1">
-                        <legend class="legend1">Address</legend>
-                        <input class="input1" type="text" id="address" name="address" placeholder="Enter your Passport Number">
-                    </fieldset> <br>
-                </fieldset> <br>
+        <!-- Content -->
+        <div class="div-2">
+            <fieldset class="field0">
+                <a href="booking.html"><span>Round-Trip</span></a> 
+                <a href="booking-oneway.html"><span>One-Way</span></a> <br>
                 <fieldset class="field1">
-                    <legend class="legend1">First Name</legend>
-                    <input class="input1" type="text" id="firstname" name="firstname" placeholder="Enter your Name">
-                </fieldset> <br>
+                    <legend class="legend1">From</legend>
+                    <select class="input2" name="source" id="source"></select>
+                </fieldset>
                 <fieldset class="field1">
-                    <legend class="legend1">Last name</legend>
-                    <input class="input1" type="text" id="lastname" name="lastname" placeholder="Enter your Surname">
+                    <legend class="legend1">To</legend>
+                    <select class="input2" name="target" id="target"></select>
                 </fieldset> <br>
                 <fieldset class="field2">
-                    <legend class="legend1">Sex</legend>
-                    <select class="input2" name="sex" id="sex">
-                        <option value="">--select one--</option>
-                        <option value="F">Female</option>
-                        <option value="M">Male</option>
-                        <option value="O">Other</option>
+                    <legend class="legend1">Depature Date</legend>
+                    <input class="input1" type="date" id="depart" name="depart">
+                </fieldset>
+                <fieldset class="field2">
+                    <legend class="legend1">Return Date</legend>
+                    <input class="input1" type="date" id="return" name="return">
+                </fieldset> <br>
+                <fieldset class="field1">
+                    <legend class="legend1">Seat Class</legend>
+                    <select class="input2" name="class" id="class">
+                        <option value="Economy"></option>
+                        <option value="Business"></option>
+                        <option value="First Class"></option>
                     </select>
                 </fieldset> <br>
-                <fieldset class="field1">
-                    <legend class="legend1">Date of Birth</legend>
-                    <input class="input1" type="date" id="date" name="date">
-                </fieldset> <br>
-                <fieldset class="field1">
-                    <legend class="legend1">Phone</legend> <!-- to be converted to tel -->
-                    <input class="input1" type="text" id="phone" name="phone" placeholder="Enter your Phone Number">
-                </fieldset> <br>
-                <fieldset class="field1">
-                    <legend class="legend1">Email</legend>
-                    <input class="input1" type="email" id="email" name="email" placeholder="Enter your Email Address">
-                </fieldset> <br>
-                <input class="button1" name="submit" type="submit" id="submit" value="Submit" /></td>
-            </div>
-        </form>
+            </fieldset>
+        </div>
+    </body>
 </html>
 
 <!-- Vue Script 
-    <script src="https://unpkg.com/vue@next"> </script>
-        <script>
-            let body = Vue.createApp( {
-                data: function() {
-                    return {
-                        input:''
-                    }
-                },
-                methods: { 
-                    print(input) {
-                        console.log(input)
-                    }
-                }
-            } )
-            
-            body.component('field-input', {
-                template:
-                `   <div class="div-2">
-                        <child-field-input 
-                            v-for="(itr,i) in inputs"
-                            :key="i"
-                            v-model="itr.value"
-                            :legend="itr.legend"
-                            :type="itr.type"
-                            :placeholder="itr.placeholder"
-                        />
-                    </div>
-                `,
-                components: ['child-field-input'],
-                data() { 
-                    return {
-                        inputs: [ 
-                            {legend:'Name',value:'',type:'name',placeholder:'Enter your name'},
-                            {legend:'Surname',value:'',type:'name',placeholder:'Enter your surname'}
-                        ]
-                    }
-                },
-                methods: {
+    <script>
+        let app = Vue.createApp( {
+            data: function() {
+                return {
                     
                 }
-            })
-            body.component('child-field-input', {
-                template:
-                `
-                    <fieldset class="field1">
-                        <legend class="legend1">{{legend}}</legend>
-                        <input class="input1" type="type" v-model="inputValue" placeholder="placeholder"/>
-                    </fieldset> <br>
-                `,
-                props: ['legend','type','placeholder','modelValue'],
-                computed: {
-                    inputValue: {
-                        get() {
-                            return this.modelValue
-                        },
-                        set(value) {
-                            this.$emit('update:modelValue', value)
-                        }
-                    }
+            },
+            methods: { 
+                print(input) {
+                    console.log(input)
                 }
-            })
-            body.mount('#body')
-        </script> -->
+            }
+        } )
+        
+        app.component('login-form', { 
+            template: 
+            `   
+            `,
+            data() { 
+                return {
+                    
+                }
+            },
+            methods: {
+
+            }
+        })
+        app.mount('#app')
+    </script> -->

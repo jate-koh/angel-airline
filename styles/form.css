@@ -11,23 +11,34 @@
   border: 2px solid black;
   outline: none;
   padding: 5px;
-  width: auto;
+  width: 40%;
+  float: left;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 .field2 { /* Middle box */
   border: 2px solid black;
   outline: none;
   padding: 5px;
-  width: auto;
+  width: 30%;
+  float: left;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 .field3 { /* Short box */
   border: 2px solid black;
   outline: none;
   padding: 5px;
-  width: auto;
+  width: 20%;
+  float: left;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 .legend1 { /*Name of field <legend> */
   font-family: 'Baskerville', sans-serif;
   font-weight: bold;
+  text-align: left;
+  margin-left: 2%;
 }
 .input1 { /* Plain text box <input> */
   border: none;
@@ -40,12 +51,12 @@
   outline: none;
   width: 100%;
 }
-.button1 {
+.button1 { /* Long Big Button */
   font-family: 'Baskerville', sans-serif;
   font-weight: bold;
   font-size: 20px;
   width: 50%;
-  padding: 10px;
+  padding: 1%;
   border: none;
   background-color: pink;
   color: white;
@@ -53,6 +64,20 @@
 .button1:hover {
   background-color: palevioletred;
 }
+.button2 { /* Small Button */
+  font-family: 'Baskerville', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  width: 10%;
+  padding: 1%;
+  border: none;
+  background-color: pink;
+  color: white;
+}
+.button2:hover {
+  background-color: palevioletred;
+}
+
 
 /* Div */
 .div-1 { /* No text form border */
@@ -62,9 +87,11 @@
   padding: 30px;
 }
 .div-2 { /* Form Border */
-  border: 3px solid black;
-  margin: auto;
-  padding: 30px;
+  background-color: white;
+  opacity: 0.95;
+  margin: 25%;
   width: 50%;
+  padding: 4% 2%;
   vertical-align: center;
+  text-align: center;
 }

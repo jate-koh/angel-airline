@@ -8,6 +8,7 @@
         <title>Home</title>
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
+        <link rel="stylesheet" type="text/css" href="styles\form.css">
         <link rel="stylesheet" href="styles\bg2.css"> <!-- Apply Bg Image -->
     </head>
     <body class="active">
@@ -56,7 +57,7 @@
                             <li><a href="#"><span>Flights</span></a></li>
                             <li><a href="#"><span>My Booking</span></a></li>
                             <li><a href="#"><span>Flight Status</span></a></li>
-                            <li><a href="booking.html"><span>Book Ticket</span></a></li>
+                            <li><a href="#"><span>Book Ticket</span></a></li>
                             <li><a href="#"><span>Login/Sign Up</span></a></li>
                         </ul> 
                     </div>
@@ -74,6 +75,33 @@
                 document.querySelector("body").classList.toggle("active"); 
             })
         </script>
+        <!-- Content -->
+        <div class="div-2">
+            <fieldset class="field0">
+                <a href="booking.html"><span>Round-Trip</span></a> 
+                <a href="booking.html"><span>One-Way</span></a> <br>
+                <fieldset class="field1">
+                    <legend class="legend1">From</legend>
+                    <select class="input2" name="source" id="source"></select>
+                </fieldset>
+                <fieldset class="field1">
+                    <legend class="legend1">To</legend>
+                    <select class="input2" name="target" id="target"></select>
+                </fieldset> <br>
+                <fieldset class="field2">
+                    <legend class="legend1">Depature Date</legend>
+                    <input class="input1" type="date" id="depart" name="depart">
+                </fieldset>
+                <fieldset class="field1">
+                    <legend class="legend1">Seat Class</legend>
+                    <select class="input2" name="class" id="class">
+                        <option value="Economy"></option>
+                        <option value="Business"></option>
+                        <option value="First Class"></option>
+                    </select>
+                </fieldset> <br>
+            </fieldset>
+        </div>
     </body>
 </html>
 

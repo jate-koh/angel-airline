@@ -60,7 +60,7 @@
     margin-left: 225px;
     transition: all 0.5s ease;
 }
-.wrapper .topbar .navbar {
+.wrapper .topbar .content {
     background-color: black;
     opacity: 0.5;
     height: 50px;
@@ -68,24 +68,39 @@
     align-items: center;
     padding: 0 30px;
 }
-.wrapper .topbar .navbar .threebars a {
+.wrapper .topbar .content .threebars a {
     font-size: 28px;
     color: white;
 }
-.wrapper .topbar .navbar .threebars a:hover {
+.wrapper .topbar .content .threebars a:hover {
     color: grey;
 }
-/* HTML BODY IS ACTIVE */
-body.active .wrapper .sidebar {
-    left: -225px;
+.wrapper .nav {
+    position: relative;
+    top: -50px;
+    left: 70%;
+    width: auto;
 }
-body.active .wrapper .topbar{
-    margin-left: 0;
-    width: 100%;
+.wrapper .nav .content {
+    float: left;
+    display: flex;
 }
-body.active .wrapper .bottombar{
-    margin-left: 0;
-    width: 100%;
+.wrapper .nav .content ul {
+    margin: 0;
+    padding: 0;
+}
+.wrapper .nav .content ul li {
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 15px;
+}
+.wrapper .nav .content ul li a {
+    color: white;
+    font-weight: bold;
+}
+.wrapper .nav .content ul li a:hover {
+    color: rgb(200, 200, 200);
+    font-weight: bold;
 }
 
 /* BOTTOM BAR */
@@ -98,12 +113,24 @@ body.active .wrapper .bottombar{
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: 5px 30px;
+    padding: 15px 30px;
     text-align: right;
 } 
 .wrapper .bottombar h1 {
     color: white;
     font-family: 'Baskerville', sans-serif;
-    font-size: 160%;
+    font-size: 100%;
 }
 
+/* HTML BODY IS ACTIVE */
+body.active .wrapper .sidebar {
+    left: -225px;
+}
+body.active .wrapper .topbar {
+    margin-left: 0;
+    width: 100%;
+}
+body.active .wrapper .bottombar{
+    margin-left: 0;
+    width: 100%;
+}
