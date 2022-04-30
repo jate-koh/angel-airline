@@ -55,14 +55,14 @@
   font-family: 'Baskerville', sans-serif;
   font-weight: bold;
   font-size: 20px;
-  width: 50%;
+  width: 20%;
   padding: 1%;
   border: none;
-  background-color: pink;
+  background-color: black;
   color: white;
 }
 .button1:hover {
-  background-color: palevioletred;
+  background-color: rgb(107, 107, 107);
 }
 .button2 { /* Small Button */
   font-family: 'Baskerville', sans-serif;

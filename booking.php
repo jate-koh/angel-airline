@@ -1,3 +1,9 @@
+<?php
+    include("database-connect.php");
+    $sql = "SELECT * FROM airport";
+    $choice = mysqli_query($conn,$sql);
+?>
+
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -76,36 +82,47 @@
             })
         </script>
         <!-- Content -->
-        <div class="div-2">
-            <fieldset class="field0">
-                <a href="booking.html"><span>Round-Trip</span></a> 
-                <a href="booking-oneway.html"><span>One-Way</span></a> <br>
-                <fieldset class="field1">
-                    <legend class="legend1">From</legend>
-                    <select class="input2" name="source" id="source"></select>
+        <form action="booking-search-result.php" method="post">
+            <div class="div-2">
+                <fieldset class="field0">
+                    <a href="booking.html"><span>Round-Trip</span></a> 
+                    <a href="booking-oneway.html"><span>One-Way</span></a> <br>
+                    <fieldset class="field1">
+                        <legend class="legend1">From</legend>
+                        <select class="input2" name="source" id="source">
+                            <?php while($row = mysqli_fetch_array($choice) ) { ?>
+                                <option value="<?php echo $row['Airport_ID']; ?>"> <?php echo $row['Airport_Name']; ?>, <?php echo $row['Country']; ?></option>
+                            <?php } mysqli_data_seek($choice, 0); ?>
+                        </select>
+                    </fieldset>
+                    <fieldset class="field1">
+                        <legend class="legend1">To</legend>
+                        <select class="input2" name="target" id="target">
+                            <?php while($row = mysqli_fetch_array($choice) ) { ?>
+                                <option value="<?php echo $row['Airport_ID']; ?>"> <?php echo $row['Airport_Name']; ?>, <?php echo $row['Country']; ?></option>
+                            <?php } mysqli_data_seek($choice, 0); ?>
+                        </select>
+                    </fieldset> <br>
+                    <fieldset class="field2">
+                        <legend class="legend1">Depature Date</legend>
+                        <input class="input1" type="date" id="depart" name="depart">
+                    </fieldset>
+                    <fieldset class="field2">
+                        <legend class="legend1">Return Date</legend>
+                        <input class="input1" type="date" id="return" name="return">
+                    </fieldset> <br>
+                    <fieldset class="field1">
+                        <legend class="legend1">Seat Class</legend>
+                        <select class="input2" name="class" id="class">
+                            <option value="economy">Economy Class</option>
+                            <option value="business">Business Class</option>
+                            <option value="first class">First Classs</option>
+                        </select>
+                    </fieldset> <br>
+                    <input class="button1" name="search" type="submit" id="search" value="Search" />
                 </fieldset>
-                <fieldset class="field1">
-                    <legend class="legend1">To</legend>
-                    <select class="input2" name="target" id="target"></select>
-                </fieldset> <br>
-                <fieldset class="field2">
-                    <legend class="legend1">Depature Date</legend>
-                    <input class="input1" type="date" id="depart" name="depart">
-                </fieldset>
-                <fieldset class="field2">
-                    <legend class="legend1">Return Date</legend>
-                    <input class="input1" type="date" id="return" name="return">
-                </fieldset> <br>
-                <fieldset class="field1">
-                    <legend class="legend1">Seat Class</legend>
-                    <select class="input2" name="class" id="class">
-                        <option value="economy">Economy Class</option>
-                        <option value="business">Business Class</option>
-                        <option value="first class">First Class</option>
-                    </select>
-                </fieldset> <br>
-            </fieldset>
-        </div>
+            </div>
+        </form>
     </body>
 </html>
 

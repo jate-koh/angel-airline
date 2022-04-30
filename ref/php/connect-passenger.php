@@ -25,14 +25,5 @@
         echo "success.";
     }
 }
-/*
-        $statement = $conn -> prepare(
-            "insert into passenger(passportno,firstname,lastname,date,sex,phone,address,email,nationality,passportexp)
-            value(?,?,?,?,?,?,?,?,?,?)"
-        );
-        $statement -> bind_param("ssssssssss",$PassportNo,$FirstName,$SurName,$DOB,$Sex,$Phone,$Address,$Email,$Nationality,$PassportExp);
-        $statement -> execute();
-        echo "success.";
-*/
 ?>
 
