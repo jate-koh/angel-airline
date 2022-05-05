@@ -11,7 +11,7 @@
 <script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script>
 <html>
     <head>
-        <title>Booking</title>
+        <title>Ticket Search</title>
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
         <link rel="stylesheet" type="text/css" href="styles\form.css">
@@ -81,77 +81,33 @@
                 document.querySelector("body").classList.toggle("active"); 
             })
         </script>
+        
         <!-- Content -->
-        <form action="booking-search-result.php" method="get">
+        <form action="ticket-search-result.php" method="get">
             <div class="div-2">
                 <fieldset class="field0">
-                    <a href="booking.html"><span>Round-Trip</span></a> 
-                    <a href="booking-oneway.html"><span>One-Way</span></a> <br>
-                    <fieldset class="field1">
-                        <legend class="legend1">From</legend>
-                        <select class="input2" name="source" value= "
-                            <?php
-                                if(isset($_GET['source'])) {
-                                    echo $_GET['source'];
-                                }
-                            ?> 
-                        ">
-                            <?php while($row = mysqli_fetch_array($choice) ) { ?>
-                                <option value="<?php echo $row['Airport_ID']; ?>"> <?php echo $row['Airport_Name']; ?>, <?php echo $row['Country']; ?></option>
-                            <?php } mysqli_data_seek($choice, 0); ?>
-                        </select>
-                    </fieldset>
-                    <fieldset class="field1">
-                        <legend class="legend1">To</legend>
-                        <select class="input2" name="target" value= "
-                            <?php
-                                if(isset($_GET['target'])) {
-                                    echo $_GET['target'];
-                                }
-                            ?> 
-                        ">
-                            <?php while($row = mysqli_fetch_array($choice) ) { ?>
-                                <option value="<?php echo $row['Airport_ID']; ?>"> <?php echo $row['Airport_Name']; ?>, <?php echo $row['Country']; ?></option>
-                            <?php } mysqli_data_seek($choice, 0); ?>
-                        </select>
-                    </fieldset> <br>
                     <fieldset class="field2">
-                        <legend class="legend1">Depature Date</legend>
-                        <input class="input1" type="date" name="depart" value= "
+                        <legend class="legend1">Ticket ID</legend>
+                        <input class="input1" type="text" name="ticket" placeholder="Enter your ticket ID" value= "
                             <?php
-                                if(isset($_GET['depart'])) {
-                                    echo $_GET['depart'];
+                                if(isset($_GET['ticket'])) {
+                                    echo $_GET['ticket'];
                                 }
                             ?> 
                         ">
                     </fieldset>
                     <fieldset class="field2">
-                        <legend class="legend1">Return Date</legend>
-                        <input class="input1" type="date" name="return" value= "
+                        <legend class="legend1">Passport No.</legend>
+                        <input class="input1" type="text" name="passport" placeholder="Enter your Passport Number" value= "
                             <?php
-                                if(isset($_GET['return'])) {
-                                    echo $_GET['return'];
+                                if(isset($_GET['passport'])) {
+                                    echo $_GET['passport'];
                                 }
                             ?> 
                         ">
-                    </fieldset> <br>
-                    <fieldset class="field1">
-                        <legend class="legend1">Seat Class</legend>
-                        <select class="input2" name="class" value= "
-                            <?php
-                                if(isset($_GET['class'])) {
-                                    echo $_GET['class'];
-                                }
-                            ?> 
-                        ">
-                            <option value="economy">Economy Class</option>
-                            <option value="business">Business Class</option>
-                            <option value="first class">First Classs</option>
-                        </select>
-                    </fieldset> <br>
-                    <input class="button1" type="submit"/>
+                    </fieldset>
+                    <input class="button1" name="search" type="submit" id="search" value="Search" />
                 </fieldset>
             </div>
         </form>
     </body>
-</html>

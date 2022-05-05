@@ -78,11 +78,10 @@
 .wrapper .nav {
     position: relative;
     top: -50px;
-    left: 70%;
-    width: auto;
+    margin-right: 2%;
 }
 .wrapper .nav .content {
-    float: left;
+    float: right;
     display: flex;
 }
 .wrapper .nav .content ul {

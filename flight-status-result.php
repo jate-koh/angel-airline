@@ -1,3 +1,9 @@
+<?php
+    include("database-connect.php");
+    $sql = "SELECT * FROM flight";
+    $result = mysqli_query($conn,$sql);
+?>
+
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -5,9 +11,10 @@
 <script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script>
 <html>
     <head>
-        <title>Home</title>
+        <title>Flight Status</title>
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
+        <link rel="stylesheet" type="text/css" href="styles\form.css">
         <link rel="stylesheet" href="styles\bg2.css"> <!-- Apply Bg Image -->
     </head>
     <body class="active">
@@ -74,36 +81,59 @@
                 document.querySelector("body").classList.toggle("active"); 
             })
         </script>
+
+        <!-- Content -->
+        <form action="flight-status-result.php" method="post">
+        <div class="div-2">
+            <fieldset class="field0">
+                <fieldset class="field2">
+                        <legend class="legend1">Source</legend>
+                        <input class="input1" type="date" id="depart" name="depart">
+                </fieldset>
+                <fieldset class="field2">
+                    <legend class="legend1">Destination</legend>
+                    <input class="input1" type="date" id="return" name="return">
+                </fieldset> <br>
+                <fieldset class="field2">
+                        <legend class="legend1">Arrival Date</legend>
+                        <input class="input1" type="date" id="depart" name="depart">
+                </fieldset>
+                <fieldset class="field2">
+                    <legend class="legend1">Departure Date</legend>
+                    <input class="input1" type="date" id="return" name="return">
+                </fieldset>
+                <input class="button1" name="search" type="submit" id="search" value="Search" />
+            </fieldset>
+        </div>
+        <div class="div-2">
+            <fieldset class="field0">
+                <table>
+                    <tr>
+                        <th>Flight ID</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Arrival</th>
+                        <th>Depature</th>
+                        <th>Status</th>
+                    </tr>
+                    <?php
+                        if($result -> num_rows > 0) {
+                            while($row = $result -> fetch_assoc()) { ?> 
+                            <tr>
+                                <td><?php echo $row["FlightID"] ?></td>
+                                <td><?php echo $row["SourceID"] ?></td>
+                                <td><?php echo $row["DestinationID"] ?></td>
+                                <td><?php echo $row["Arrival"] ?></td>
+                                <td><?php echo $row["Departure"] ?></td>
+                                <td><?php echo $row["Status"] ?></td>
+                            </tr>
+                    <?php        
+                            }
+                        }
+                        mysqli_data_seek($result, 0);
+                    ?>
+                </table>
+            </fieldset>
+        </div>
     </body>
 </html>
-
-<!-- Vue Script 
-    <script>
-        let app = Vue.createApp( {
-            data: function() {
-                return {
-                    
-                }
-            },
-            methods: { 
-                print(input) {
-                    console.log(input)
-                }
-            }
-        } )
-        
-        app.component('login-form', { 
-            template: 
-            `   
-            `,
-            data() { 
-                return {
-                    
-                }
-            },
-            methods: {
-
-            }
-        })
-        app.mount('#app')
-    </script> -->

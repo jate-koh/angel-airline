@@ -1,7 +1,7 @@
 <?php
     include("database-connect.php");
-    $sql = "SELECT * FROM airport";
-    $choice = mysqli_query($conn,$sql);
+    $sql = "SELECT * FROM flight";
+    $result = mysqli_query($conn,$sql);
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 <script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script>
 <html>
     <head>
-        <title>Booking</title>
+        <title>Flight Status</title>
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
         <link rel="stylesheet" type="text/css" href="styles\form.css">
@@ -81,77 +81,109 @@
                 document.querySelector("body").classList.toggle("active"); 
             })
         </script>
+
         <!-- Content -->
-        <form action="booking-search-result.php" method="get">
-            <div class="div-2">
-                <fieldset class="field0">
-                    <a href="booking.html"><span>Round-Trip</span></a> 
-                    <a href="booking-oneway.html"><span>One-Way</span></a> <br>
-                    <fieldset class="field1">
-                        <legend class="legend1">From</legend>
-                        <select class="input2" name="source" value= "
+        <form action="flight-status-result.php" method="get">
+        <div class="div-2">
+            <fieldset class="field0">
+                <fieldset class="field1">
+                    <legend class="legend1">Source</legend>
+                        <input class="input1" type="text" name="source" placeholder="Where you will depart"
+                            value="
                             <?php
                                 if(isset($_GET['source'])) {
                                     echo $_GET['source'];
                                 }
                             ?> 
-                        ">
-                            <?php while($row = mysqli_fetch_array($choice) ) { ?>
-                                <option value="<?php echo $row['Airport_ID']; ?>"> <?php echo $row['Airport_Name']; ?>, <?php echo $row['Country']; ?></option>
-                            <?php } mysqli_data_seek($choice, 0); ?>
-                        </select>
-                    </fieldset>
-                    <fieldset class="field1">
-                        <legend class="legend1">To</legend>
-                        <select class="input2" name="target" value= "
+                        " >
+                </fieldset>
+                <fieldset class="field1">
+                    <legend class="legend1">Destination</legend>
+                    <input class="input1" type="text" name="destination" placeholder="Where you will arrive"
+                        value= "
                             <?php
-                                if(isset($_GET['target'])) {
-                                    echo $_GET['target'];
+                                if(isset($_GET['destination'])) {
+                                    echo $_GET['destination'];
                                 }
                             ?> 
                         ">
-                            <?php while($row = mysqli_fetch_array($choice) ) { ?>
-                                <option value="<?php echo $row['Airport_ID']; ?>"> <?php echo $row['Airport_Name']; ?>, <?php echo $row['Country']; ?></option>
-                            <?php } mysqli_data_seek($choice, 0); ?>
-                        </select>
-                    </fieldset> <br>
-                    <fieldset class="field2">
-                        <legend class="legend1">Depature Date</legend>
-                        <input class="input1" type="date" name="depart" value= "
+                </fieldset> <br>
+                <fieldset class="field2">
+                    <legend class="legend1">Arrival Date</legend>
+                        <input class="input1" type="date" name="arrive" 
+                            value= "
+                                <?php
+                                    if(isset($_GET['arrive'])) {
+                                        echo $_GET['arrive'];
+                                    }
+                                ?> 
+                            ">
+                </fieldset>
+                <fieldset class="field1">
+                        <legend class="legend1">Arrival Time</legend>
+                        <input class="input1" type="time" name="arr-time"
+                            value= "
+                                <?php
+                                    if(isset($_GET['arr-time'])) {
+                                        echo $_GET['arr-time'];
+                                    }
+                                ?> 
+                            ">
+                </fieldset> <br>
+                <fieldset class="field2">
+                    <legend class="legend1">Departure Date</legend>
+                    <input class="input1" type="date" name="depart" 
+                        value= "
                             <?php
                                 if(isset($_GET['depart'])) {
                                     echo $_GET['depart'];
                                 }
                             ?> 
                         ">
-                    </fieldset>
-                    <fieldset class="field2">
-                        <legend class="legend1">Return Date</legend>
-                        <input class="input1" type="date" name="return" value= "
-                            <?php
-                                if(isset($_GET['return'])) {
-                                    echo $_GET['return'];
-                                }
-                            ?> 
-                        ">
-                    </fieldset> <br>
-                    <fieldset class="field1">
-                        <legend class="legend1">Seat Class</legend>
-                        <select class="input2" name="class" value= "
-                            <?php
-                                if(isset($_GET['class'])) {
-                                    echo $_GET['class'];
-                                }
-                            ?> 
-                        ">
-                            <option value="economy">Economy Class</option>
-                            <option value="business">Business Class</option>
-                            <option value="first class">First Classs</option>
-                        </select>
-                    </fieldset> <br>
-                    <input class="button1" type="submit"/>
                 </fieldset>
-            </div>
-        </form>
+                <fieldset class="field1">
+                        <legend class="legend1">Departure Time</legend>
+                        <input class="input1" type="time" name="dep-time"
+                            value= "
+                            <?php
+                                if(isset($_GET['dep-time'])) {
+                                    echo $_GET['dep-time'];
+                                }
+                            ?> 
+                        ">
+                </fieldset>
+                <input class="button1" name="search" type="submit" id="search" value="Search" />
+            </fieldset>
+        </div>
+        <div class="div-2">
+            <fieldset class="field0">
+                <table>
+                    <tr>
+                        <th>Flight ID</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Arrival</th>
+                        <th>Depature</th>
+                        <th>Status</th>
+                    </tr>
+                    <?php
+                        if($result -> num_rows > 0) {
+                            while($row = $result -> fetch_assoc()) { ?> 
+                            <tr>
+                                <td><?php echo $row["FlightID"] ?></td>
+                                <td><?php echo $row["SourceID"] ?></td>
+                                <td><?php echo $row["DestinationID"] ?></td>
+                                <td><?php echo $row["Arrival"] ?></td>
+                                <td><?php echo $row["Departure"] ?></td>
+                                <td><?php echo $row["Status"] ?></td>
+                            </tr>
+                    <?php        
+                            }
+                        }
+                        mysqli_data_seek($result, 0);
+                    ?>
+                </table>
+            </fieldset>
+        </div>
     </body>
 </html>

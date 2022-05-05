@@ -30,15 +30,15 @@
                             <span class="icon"><i class="fa-solid fa-house"></i></span>
                             <span class="item">Home</span>
                         </a></li>
-                        <li><a href="#">
+                        <li><a href="ticket-search.php">
                             <span class="icon"><i class="fa-solid fa-book-bookmark"></i></span>
-                            <span class="item">My Booking</span>
+                            <span class="item">Search Ticket</span>
                         </a></li>
-                        <li><a href="#">
+                        <li><a href="flight-status.php">
                             <span class="icon"><i class="fa-solid fa-plane"></i></span>
                             <span class="item">Flight Status</span>
                         </a></li>
-                        <li><a href="booking.html">
+                        <li><a href="booking.php">
                             <span class="icon"><i class="fa-solid fa-ticket"></i></span>
                             <span class="item">Book Ticket</span>
                         </a></li>
@@ -63,9 +63,9 @@
                     <div class="content">
                         <ul>
                             <li><a href="#"><span>Flights</span></a></li>
-                            <li><a href="#"><span>My Booking</span></a></li>
-                            <li><a href="#"><span>Flight Status</span></a></li>
-                            <li><a href="#"><span>Book Ticket</span></a></li>
+                            <li><a href="ticket-search.php"><span>Search Ticket</span></a></li>
+                            <li><a href="flight-status.php"><span>Flight Status</span></a></li>
+                            <li><a href="booking.php"><span>Book Ticket</span></a></li>
                             <li><a href="#"><span>Login/Sign Up</span></a></li>
                         </ul> 
                     </div>
