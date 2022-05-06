@@ -51,15 +51,26 @@
   outline: none;
   width: 100%;
 }
+.btnbox { /* Button Box */
+  border: none;
+  outline: none;
+  padding: 2%;
+  margin-left: 5%;
+  margin-top: 5%;
+  width: 100%;
+  float: left;
+  margin-left: 2%;
+  margin-top: 2%;
+}
 .button1 { /* Long Big Button */
   font-family: 'Baskerville', sans-serif;
   font-weight: bold;
   font-size: 20px;
-  width: 20%;
-  padding: 1%;
+  padding: 2%;
   border: none;
   background-color: black;
   color: white;
+  text-align: center;
 }
 .button1:hover {
   background-color: rgb(107, 107, 107);
@@ -77,7 +88,6 @@
 .button2:hover {
   background-color: palevioletred;
 }
-
 
 /* Div */
 .div-1 { /* No text form border */

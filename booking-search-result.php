@@ -34,7 +34,7 @@
                             <span class="icon"><i class="fa-solid fa-book-bookmark"></i></span>
                             <span class="item">Search Ticket</span>
                         </a></li>
-                        <li><a href="flight-status.php">
+                        <li><a href="flight-status-live.php">
                             <span class="icon"><i class="fa-solid fa-plane"></i></span>
                             <span class="item">Flight Status</span>
                         </a></li>
@@ -64,7 +64,7 @@
                         <ul>
                             <li><a href="#"><span>Flights</span></a></li>
                             <li><a href="ticket-search.php"><span>Search Ticket</span></a></li>
-                            <li><a href="flight-status.php"><span>Flight Status</span></a></li>
+                            <li><a href="flight-status-live.php"><span>Flight Status</span></a></li>
                             <li><a href="booking.php"><span>Book Ticket</span></a></li>
                             <li><a href="#"><span>Login/Sign Up</span></a></li>
                         </ul> 
@@ -83,6 +83,7 @@
                 document.querySelector("body").classList.toggle("active"); 
             })
         </script>
+        
         <!-- Content -->
         <form action="booking-search-result.php" method="post">
             <div class="div-2">

@@ -3,6 +3,7 @@ table, th, td {
     border: 1px solid;
     text-align: center;
     font-family: 'Baskerville', sans-serif;
+    background-color: white;
   }
 table {
     width: 100%;
