@@ -89,9 +89,8 @@
 .div-2 { /* Form Border */
   background-color: white;
   opacity: 0.95;
-  margin: 25%;
+  margin-left: 25%;
+  margin-top: 12%;
   width: 50%;
   padding: 4% 2%;
-  vertical-align: center;
-  text-align: center;
 }

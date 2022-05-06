@@ -15,6 +15,7 @@
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
         <link rel="stylesheet" type="text/css" href="styles\form.css">
+        <link rel="stylesheet" type="text/css" href="styles\table.css">
         <link rel="stylesheet" href="styles\bg2.css"> <!-- Apply Bg Image -->
     </head>
     <body class="active">
@@ -162,19 +163,30 @@
                         <th>Flight ID</th>
                         <th>Source</th>
                         <th>Destination</th>
-                        <th>Arrival</th>
-                        <th>Depature</th>
+                        <th>Arrival Date</th>
+                        <th>Arrival Time</th>
+                        <th>Departure Date</th>
+                        <th>Departure Time</th>
                         <th>Status</th>
                     </tr>
                     <?php
                         if($result -> num_rows > 0) {
-                            while($row = $result -> fetch_assoc()) { ?> 
+                            while($row = $result -> fetch_assoc()) { 
+                                $arrive = new DateTime($row['Arrival']);
+                                $depart = new DateTime($row['Departure']);
+                                $arrdate = $arrive -> format('Y-m-d');
+                                $arrtime = $arrive -> format('H:i:s');
+                                $depdate = $depart -> format('Y-m-d');
+                                $deptime = $depart -> format('H:i:s');
+                    ?> 
                             <tr>
                                 <td><?php echo $row["FlightID"] ?></td>
                                 <td><?php echo $row["SourceID"] ?></td>
                                 <td><?php echo $row["DestinationID"] ?></td>
-                                <td><?php echo $row["Arrival"] ?></td>
-                                <td><?php echo $row["Departure"] ?></td>
+                                <td><?php echo $arrdate ?></td>
+                                <td><?php echo $arrtime ?></td>
+                                <td><?php echo $depdate ?></td>
+                                <td><?php echo $deptime ?></td>
                                 <td><?php echo $row["Status"] ?></td>
                             </tr>
                     <?php        
