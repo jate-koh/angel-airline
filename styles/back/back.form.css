@@ -2,6 +2,8 @@
 .div-2 { /* Form Border */
     border: none;
     background-color: white;
+    margin-top: 10%;
+    margin-left: 25%;
     opacity: 0.95;
     width: 50%;
     padding: 4% 2%;
@@ -17,7 +19,7 @@
     border: 2px solid black;
     outline: none;
     padding: 5px;
-    width: 40%;
+    width: 50%;
     float: left;
     margin-left: 2%;
     margin-top: 2%;
@@ -74,24 +76,10 @@
     font-size: 20px;
     padding: 2%;
     border: white;
-    background-color: gray;
+    background-color: rgb(130, 160, 203);
     color: white;
     text-align: center;
   }
   .btnbox .button1:hover {
-    background-color: palevioletred;
+    background-color: darkblue;
   }
-  .btnbox .button2 { /* Small Button */
-    font-family: 'Baskerville', sans-serif;
-    font-weight: bold;
-    font-size: 12px;
-    width: 10%;
-    padding: 1%;
-    border: none;
-    background-color: pink;
-    color: white;
-  }
-  .btnbox .button2:hover {
-    background-color: palevioletred;
-  }
-  

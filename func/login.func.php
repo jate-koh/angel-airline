@@ -1,5 +1,5 @@
 <?php 
-    include("database-connect.php");
+    include("../func/database-connect.func.php");
 
     function emptyInput($username,$password) {
         $result;
@@ -42,8 +42,6 @@
         $Hash = $userExist["UserPwd"];
         $check = password_verify($password,$Hash);
         if($check === false) {
-            echo $password;
-            echo $HashPwd;
             echo "wrong password";//header("location:login.php?error=wronglogin");
             exit();
         }

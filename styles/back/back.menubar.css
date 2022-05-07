@@ -10,7 +10,7 @@
 
 /* SIDE MENU BAR */
 .wrapper .sidebar {
-    background: black;
+    background: rgb(48, 64, 120);
     position: fixed;
     top: 0;
     left: 0;
@@ -37,15 +37,15 @@
 /* Hovering */
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active {
-    background: rgb(179, 179, 179);
+    background: rgb(99, 124, 205);
 }
 .wrapper .sidebar ul li a:hover .icon,
 .wrapper .sidebar ul li a.active .icon {
-    color: black;
+    color: rgb(31, 50, 112);
 }
 .wrapper .sidebar ul li a:hover .item,
 .wrapper .sidebar ul li a.active .item {
-    color: black;
+    color: rgb(31, 50, 112);
 }
 
 .wrapper .sidebar ul li a::before,
@@ -60,8 +60,7 @@
     transition: all 0.5s ease;
 }
 .wrapper .topbar .content {
-    background-color: black;
-    opacity: 0.5;
+    background-color: rgb(67, 84, 141);
     height: 50px;
     display: flex;
     align-items: center;
@@ -72,7 +71,7 @@
     color: white;
 }
 .wrapper .topbar .content .threebars a:hover {
-    color: grey;
+    color: rgb(192, 207, 255);
 }
 .wrapper .nav {
     position: relative;
@@ -97,7 +96,7 @@
     font-weight: bold;
 }
 .wrapper .nav .content ul li a:hover {
-    color: rgb(200, 200, 200);
+    color: rgb(192, 207, 255);
     font-weight: bold;
 }
 
@@ -106,7 +105,7 @@
     width: calc(100% - 225px);
     margin-left: 225px;
     transition: all 0.5s ease;
-    background-color: black;
+    background-color: rgb(67, 84, 141);
     opacity: 0.75;
     position: fixed;
     bottom: 0;
