@@ -124,7 +124,7 @@
                                     echo $_GET['depart'];
                                 }
                             ?> 
-                        ">
+">
                     </fieldset>
                     <fieldset class="field2">
                         <legend class="legend1">Return Date</legend>

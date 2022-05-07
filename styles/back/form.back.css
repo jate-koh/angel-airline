@@ -1,0 +1,97 @@
+/* Form */
+.div-2 { /* Form Border */
+    border: none;
+    background-color: white;
+    opacity: 0.95;
+    width: 50%;
+    padding: 4% 2%;
+  }
+  .field0 { /* Sub-box */
+    border: 2px solid black;
+    outline: none;
+    padding: 16px;
+    margin: auto;
+    width: auto;
+  }
+  .field0 .field1 { /* Long box */
+    border: 2px solid black;
+    outline: none;
+    padding: 5px;
+    width: 40%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  .field0 .field2 { /* Middle box */
+    border: 2px solid black;
+    outline: none;
+    padding: 5px;
+    width: 30%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  .field0 .field3 { /* Short box */
+    border: 2px solid black;
+    outline: none;
+    padding: 5px;
+    width: 20%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  .field0 .legend1 { /*Name of field <legend> */
+    font-family: 'Baskerville', sans-serif;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 2%;
+  }
+  .field0 .input1 { /* Plain text box <input> */
+    border: none;
+    outline: none;
+    fill: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+  }
+  .field0 .input2 { /* Drop down <select> */
+    outline: none;
+    width: 100%;
+  }
+  .btnbox { /* Button Box */
+    border: none;
+    outline: none;
+    padding: 2%;
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 100%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  .btnbox .button1 { /* Long Big Button */
+    font-family: 'Baskerville', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 2%;
+    border: white;
+    background-color: gray;
+    color: white;
+    text-align: center;
+  }
+  .btnbox .button1:hover {
+    background-color: palevioletred;
+  }
+  .btnbox .button2 { /* Small Button */
+    font-family: 'Baskerville', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    width: 10%;
+    padding: 1%;
+    border: none;
+    background-color: pink;
+    color: white;
+  }
+  .btnbox .button2:hover {
+    background-color: palevioletred;
+  }
+  

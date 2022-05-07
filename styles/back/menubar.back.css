@@ -1,0 +1,134 @@
+@import url('http://fonts.cdnfonts.com/css/baskerville');
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baskerville', sans-serif;
+}
+
+/* SIDE MENU BAR */
+.wrapper .sidebar {
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 70px 0;
+    transition: all 0.5s ease;
+}
+.wrapper .sidebar ul li a {
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid white;
+    color: white;
+    font-family: 'Baskerville', sans-serif;
+    font-size: 18px;
+    position: relative;
+}
+.wrapper .sidebar ul li a .icon {
+    color: white;
+    width: 30px;
+    display: inline-block;
+}
+
+/* Hovering */
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active {
+    background: rgb(179, 179, 179);
+}
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon {
+    color: black;
+}
+.wrapper .sidebar ul li a:hover .item,
+.wrapper .sidebar ul li a.active .item {
+    color: black;
+}
+
+.wrapper .sidebar ul li a::before,
+.wrapper .sidebar ul li a.active::before {
+    display: block;
+}
+
+/* TOP MENU BAR */
+.wrapper .topbar {
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+}
+.wrapper .topbar .content {
+    background-color: black;
+    opacity: 0.5;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+.wrapper .topbar .content .threebars a {
+    font-size: 28px;
+    color: white;
+}
+.wrapper .topbar .content .threebars a:hover {
+    color: grey;
+}
+.wrapper .nav {
+    position: relative;
+    top: -50px;
+    margin-right: 2%;
+}
+.wrapper .nav .content {
+    float: right;
+    display: flex;
+}
+.wrapper .nav .content ul {
+    margin: 0;
+    padding: 0;
+}
+.wrapper .nav .content ul li {
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 15px;
+}
+.wrapper .nav .content ul li a {
+    color: white;
+    font-weight: bold;
+}
+.wrapper .nav .content ul li a:hover {
+    color: rgb(200, 200, 200);
+    font-weight: bold;
+}
+
+/* BOTTOM BAR */
+.wrapper .bottombar {
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+    background-color: black;
+    opacity: 0.75;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 15px 30px;
+    text-align: right;
+} 
+.wrapper .bottombar h1 {
+    color: white;
+    font-family: 'Baskerville', sans-serif;
+    font-size: 100%;
+}
+
+/* HTML BODY IS ACTIVE */
+body.active .wrapper .sidebar {
+    left: -225px;
+}
+body.active .wrapper .topbar {
+    margin-left: 0;
+    width: 100%;
+}
+body.active .wrapper .bottombar{
+    margin-left: 0;
+    width: 100%;
+}

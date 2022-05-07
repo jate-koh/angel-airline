@@ -1,5 +1,15 @@
 @import url('http://fonts.cdnfonts.com/css/baskerville');
-/* Input */
+
+/* Form */
+.div-2 { /* Form Border */
+  border: none;
+  background-color: white;
+  opacity: 0.95;
+  margin-left: 25%;
+  margin-top: 12%;
+  width: 50%;
+  padding: 4% 2%;
+}
 .field0 { /* Sub-box */
   border: 2px solid black;
   outline: none;
@@ -7,7 +17,7 @@
   margin: auto;
   width: auto;
 }
-.field1 { /* Long box */
+.field0 .field1 { /* Long box */
   border: 2px solid black;
   outline: none;
   padding: 5px;
@@ -16,7 +26,7 @@
   margin-left: 2%;
   margin-top: 2%;
 }
-.field2 { /* Middle box */
+.field0 .field2 { /* Middle box */
   border: 2px solid black;
   outline: none;
   padding: 5px;
@@ -25,7 +35,7 @@
   margin-left: 2%;
   margin-top: 2%;
 }
-.field3 { /* Short box */
+.field0 .field3 { /* Short box */
   border: 2px solid black;
   outline: none;
   padding: 5px;
@@ -34,20 +44,20 @@
   margin-left: 2%;
   margin-top: 2%;
 }
-.legend1 { /*Name of field <legend> */
+.field0 .legend1 { /*Name of field <legend> */
   font-family: 'Baskerville', sans-serif;
   font-weight: bold;
   text-align: left;
   margin-left: 2%;
 }
-.input1 { /* Plain text box <input> */
+.field0 .input1 { /* Plain text box <input> */
   border: none;
   outline: none;
   fill: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
 }
-.input2 { /* Drop down <select> */
+.field0 .input2 { /* Drop down <select> */
   outline: none;
   width: 100%;
 }
@@ -62,20 +72,20 @@
   margin-left: 2%;
   margin-top: 2%;
 }
-.button1 { /* Long Big Button */
+.btnbox .button1 { /* Long Big Button */
   font-family: 'Baskerville', sans-serif;
   font-weight: bold;
   font-size: 20px;
   padding: 2%;
-  border: none;
-  background-color: black;
+  border: white;
+  background-color: gray;
   color: white;
   text-align: center;
 }
-.button1:hover {
-  background-color: rgb(107, 107, 107);
+.btnbox .button1:hover {
+  background-color: palevioletred;
 }
-.button2 { /* Small Button */
+.btnbox .button2 { /* Small Button */
   font-family: 'Baskerville', sans-serif;
   font-weight: bold;
   font-size: 12px;
@@ -85,22 +95,98 @@
   background-color: pink;
   color: white;
 }
-.button2:hover {
+.btnbox .button2:hover {
   background-color: palevioletred;
 }
 
-/* Div */
-.div-1 { /* No text form border */
-  border: 3px solid black;
-  width: 50%;
+/* Login Box */
+.div-1 { 
+  position: fixed;
+  top: 40%;
+  right: 20%;
+  background-color: black;
+  opacity: 0.85;
+  border: none;
+  width: 30%;
   margin: auto;
   padding: 30px;
 }
-.div-2 { /* Form Border */
-  background-color: white;
-  opacity: 0.95;
-  margin-left: 25%;
-  margin-top: 12%;
+.div-1 h1 {
+  color: white;
+  font-family: 'Baskerville', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+}
+.div-1 .field0 { /* Login Box */
+  outline: none;
+  padding: 16px;
+  margin: auto;
+  width: auto;
+}
+.div-1 .field0 .field1 {
+  border-bottom: 2px solid white;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+  float: left;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
   width: 50%;
-  padding: 4% 2%;
+}
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 0;
+}
+
+.form__label {
+  position: relative;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right,palevioletred, pink );
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: relative;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: palevioletred;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
 }

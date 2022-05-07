@@ -1,0 +1,8 @@
+body {
+    background-image: url("/img/bg/full_white.png"), url("/img/bg/bg1.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed ,fixed;
+    background-position: left, right;
+    background-size: 50% 100% , 100%;
+    opacity: 0.7, 1;
+}

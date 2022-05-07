@@ -105,8 +105,10 @@
                                 }
                             ?> 
                         ">
+                    </fieldset> <br>
+                    <fieldset class="btnbox">
+                        <input class="button1" name="search" type="submit" id="search" value="Search" />
                     </fieldset>
-                    <input class="button1" name="search" type="submit" id="search" value="Search" />
                 </fieldset>
             </div>
         </form>
