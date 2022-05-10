@@ -1,25 +1,19 @@
 <?php
+    session_start();
     include("database-connect.php");
     $sql = "SELECT * from `human resources`;";
     $choice = mysqli_query($conn,$sql);
-    if($_GET['error'] === 'none') {
-        echo "<script> alert('Success.') </script>";
-    }
-    else if($_GET['error'] === 'dupeuser') {
-        echo "<script> alert('Please try different username.') </script>";
-    }
-    else if($_GET['error'] === 'unmatchpw') {
-        echo "<script> alert('Password does not match.') </script>";
-    }
-    else if($_GET['error'] === 'no') {
-        echo "<script> alert('PHP error') </script>";
-    }
 ?>
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous">
+</script>
 <html>
     <head>
         <title>Staff Register</title>
@@ -27,48 +21,14 @@
         <link rel="stylesheet" type="text/css" href="styles\back\back.menubar.css">
         <link rel="stylesheet" type="text/css" href="styles\back\back.form.css">
     </head>
+    <script> 
+            $(function(){
+                $("#menu").load("back.menu.php"); 
+            });
+        </script> 
     <body class="active">
-        <!-- Wrapper -->
-        <div>
-            <div class="wrapper">
-                <!-- Side menu bar -->
-                <div class="sidebar"> 
-                    <ul>
-                        <li><a href="back.staff-reg.php?error=">
-                            <span class="item">Staff Register</span>
-                    </ul>
-                </div>
-                <!-- Top menu bar -->
-                <div class="topbar">
-                    <div class="content">
-                        <div class="threebars">
-                            <a href="#"><i class="fa-solid fa-bars"></i></a>
-                        </div>
-                        <div class="logo">
-                            <!-- <img src="/img/logo/long-logo-pink.png"> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="nav">
-                    <div class="content">
-                        <ul>
-                            <li><a href="#"><span>Logout</span></a></li>
-                        </ul> 
-                    </div>
-                </div>
-                <!-- Bottom bar  -->
-                <div class="bottombar">
-                    <h1>Designed by SR., Created by JK., 2022</h1>
-                </div>
-            </div>
-        </div>
-        <!-- Bar Script -->
-        <script>
-            var threebars = document.querySelector(".threebars");
-            threebars.addEventListener("click", function() {
-                document.querySelector("body").classList.toggle("active"); 
-            })
-        </script>
+
+    <div id="menu"></div>
         
         <!-- Content -->
         <form action="func/reg.func.php" method="POST">
@@ -102,3 +62,20 @@
         </form>
     </body>
 </html>
+
+<?php
+    if(isset($_GET["error"])) {
+        if($_GET['error'] === 'none') {
+            echo "<script> alert('Success.') </script>";
+        }
+        else if($_GET['error'] === 'dupeuser') {
+            echo "<script> alert('Please try different username.') </script>";
+        }
+        else if($_GET['error'] === 'unmatchpw') {
+            echo "<script> alert('Password does not match.') </script>";
+        }
+        else if($_GET['error'] === 'no') {
+            echo "<script> alert('PHP error') </script>";
+        }
+    } 
+?>

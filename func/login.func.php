@@ -12,7 +12,7 @@
         $sql = "SELECT * FROM login WHERE UserName = ?;";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql)) {
-            echo "stmt failure";//header("location:login.php?error=stmtfailure");
+            header("location:login.php?error=stmtfailure");
             exit();
         }
 
@@ -35,18 +35,22 @@
     function loginUser($conn, $username, $password) {
         $userExist = userExist($conn,$username);
         if($userExist === false) {
-            echo "wrong user"; //header("location:login.php?error=wronglogin");
+            header("location:login.php?error=wronglogin");
             exit();
         }
 
         $Hash = $userExist["UserPwd"];
         $check = password_verify($password,$Hash);
         if($check === false) {
-            echo "wrong password";//header("location:login.php?error=wronglogin");
+            header("location:login.php?error=wronglogin");
             exit();
         }
         else if($check === true) {
-            echo "correct";
+            session_start();
+            $_SESSION["userid"] = $userExist["UserName"];
+            $_SESSION["useruid"] = $userExist["UserName"];
+            header("location:back.staff-reg.php");
+            exit();
         }
     }
 ?>

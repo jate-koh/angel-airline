@@ -48,3 +48,19 @@
         </div>
     </body>
 </html>
+
+<?php
+    if(isset($_GET["error"])) {
+        if($_GET["error"] == "stmtfailure") {
+            echo "<script> alert('SQL statement error') </script>";
+        }
+        if($_GET["error"] == "wronglogin") {
+            echo "<script> alert('Wrong Username or Password') </script>";
+        }
+    }
+    if(isset($_GET["logout"])) {
+        if($_GET["logout"] == "done") {
+            echo "<script> alert('Logout Success') </script>";
+        }
+    }
+?>

@@ -1,11 +1,11 @@
 <?php 
-    include("../database-connect.php");
+    include("./database-connect.php");
 
 if(isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    require_once '../func/login.func.php';
+    require_once './func/login.func.php';
 
     if(emptyInput($username, $password) !== false ) {
         echo "empty"; //header("location:login.php?error=emptyinput");
@@ -16,6 +16,7 @@ if(isset($_POST["submit"])) {
 
 }
 else {
-    header("location:../login.php");
+    header("location:./login.php");
 }
 ?>
+
