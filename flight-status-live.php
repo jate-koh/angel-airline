@@ -22,6 +22,7 @@
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
         <link rel="stylesheet" type="text/css" href="styles\form.css">
+        <link rel="stylesheet" type="text/css" href="styles\datepicker.css">
         <link rel="stylesheet" type="text/css" href="styles\table.css">
         <link rel="stylesheet" href="styles\bg2.css"> <!-- Apply Bg Image -->
         <script> 

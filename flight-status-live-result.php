@@ -28,7 +28,7 @@ $result = mysqli_query($conn,$sql);
         <?php
             if($result -> num_rows > 0) {
         ?> 
-            <table>
+            <table class="result">
                 <thead>
                     <tr>
                         <th>Flight ID</th>

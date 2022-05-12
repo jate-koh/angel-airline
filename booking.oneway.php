@@ -9,80 +9,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script>
+<scrip
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous">
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <html>
     <head>
         <title>Booking</title>
         <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
         <link rel="stylesheet" type="text/css" href="styles\menubar.css">
         <link rel="stylesheet" type="text/css" href="styles\form.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
         <link rel="stylesheet" href="styles\bg2.css"> <!-- Apply Bg Image -->
     </head>
+    <script> 
+        $(function(){
+            $("#menu").load("menu.html"); 
+        });
+    </script> 
     <body class="active">
-        <!-- Wrapper -->
-        <div>
-            <div class="wrapper">
-                <!-- Side menu bar -->
-                <div class="sidebar"> 
-                    <ul>
-                        <li><a href="index.html">
-                            <span class="icon"><i class="fa-solid fa-house"></i></span>
-                            <span class="item">Home</span>
-                        </a></li>
-                        <li><a href="ticket-search.php">
-                            <span class="icon"><i class="fa-solid fa-book-bookmark"></i></span>
-                            <span class="item">Search Ticket</span>
-                        </a></li>
-                        <li><a href="flight-status-live.php">
-                            <span class="icon"><i class="fa-solid fa-plane"></i></span>
-                            <span class="item">Flight Status</span>
-                        </a></li>
-                        <li><a href="booking.php">
-                            <span class="icon"><i class="fa-solid fa-ticket"></i></span>
-                            <span class="item">Book Ticket</span>
-                        </a></li>
-                        <li><a href="#">
-                            <span class="icon"><i class="fa-solid fa-address-book"></i></span>
-                            <span class="item">Contact Us</span>
-                        </a></li>
-                    </ul>
-                </div>
-                <!-- Top menu bar -->
-                <div class="topbar">
-                    <div class="content">
-                        <div class="threebars">
-                            <a href="#"><i class="fa-solid fa-bars"></i></a>
-                        </div>
-                        <div class="logo">
-                            <!-- <img src="/img/logo/long-logo-pink.png"> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="nav">
-                    <div class="content">
-                        <ul>
-                            <li><a href="#"><span>Flights</span></a></li>
-                            <li><a href="ticket-search.php"><span>Search Ticket</span></a></li>
-                            <li><a href="flight-status-live.php"><span>Flight Status</span></a></li>
-                            <li><a href="booking.php"><span>Book Ticket</span></a></li>
-                            <li><a href="#"><span>Login/Sign Up</span></a></li>
-                        </ul> 
-                    </div>
-                </div>
-                <!-- Bottom bar  -->
-                <div class="bottombar">
-                    <h1>Designed by SR., Created by JK., 2022</h1>
-                </div>
-            </div>
-        </div>
-        <!-- Bar Script -->
-        <script>
-            var threebars = document.querySelector(".threebars");
-            threebars.addEventListener("click", function() {
-                document.querySelector("body").classList.toggle("active"); 
-            })
-        </script>
+
+        <div id="menu"></div>
         
-        <!-- Content -->
+        <!-- Content
         <form action="booking-search-result.php" method="get">
             <div class="div-2">
                 <fieldset class="field0">
@@ -122,6 +79,49 @@
                     </fieldset> <br>
                 </fieldset>
             </div>
-        </form>
+        </form>  -->
+
+        <div class="div-2">
+            <table id="flight_data" >
+                <thead>
+                    <tr>
+                        <th width="20%">Source</th>
+                        <th width="10%">Departure</th>
+                        <th width="20%">Destination</th>
+                        <th width="10%">Arrival Time Est.</th>
+                        <th width="10%">Book</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </body>
 </html>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+        $('#addbutton').click(function() {
+            $('#form')[0].reset();
+            $('.modal-title').text("Add");
+            $('#action').val("Add");
+            $('#operation').val("Add");
+        });
+
+        var dataTable = $('#flight_data').dataTable({
+            "processing":true,
+            "serverSide":true,
+            "order":[],
+            "ajax": {
+                url:"./booking.fetch.php",
+                method:"POST"
+            },
+            "columnDefs":[
+                {
+                "target":[0,3,4],
+                "orderable":false
+                }
+            ]
+        });
+
+    });
+
+</script>

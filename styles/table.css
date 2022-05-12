@@ -1,13 +1,12 @@
 @import url('http://fonts.cdnfonts.com/css/baskerville');
-table, th, td {
-    border: 1px solid;
+.result {
     text-align: center;
     font-family: 'Baskerville', sans-serif;
     background-color: white;
-  }
-table {
     width: 100%;
 }
-th {
+.result thead tr th{
     height: 70px;
+    margin: 2%;
+    border-bottom: 2px solid ;
 }
