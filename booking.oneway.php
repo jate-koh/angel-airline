@@ -102,18 +102,18 @@
 
 <div id="userModal" class="modal fade">
         <div class="modal-dialog">
-            <form method="post" id="user_form" enctype="multipart/form-data">
+            <form action="./back.booking.payment.php" method="post" id="user_form" enctype="multipart/form-data">
                 <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Confirm?</h4>
+                            <h4 class="modal-title"></h4>
                         </div>
                         <div class="modal-body">
                             <label>Ticket ID</label>
                             <input type="text" name="ticketID" id="ticketID" class="form-control" readonly/>
                             <br />
                             <label>Flight ID</label>
-                            <input type="text" name="flightID" id="ticketID" class="form-control" readonly/>
+                            <input type="text" name="flightID" id="flightID" class="form-control" readonly/>
                             <br />
                         </div>
                         <div class="modal-footer">
@@ -158,12 +158,30 @@
             success: function(data) {
                 $('#userModal').modal('show');
                 $('#ticketID').val(data.ticket_id);
-                $('.modal-title').text("Booking");
-                $('#action').val("Edit");
-                $('#operation').val("Edit");
+                $('.modal-title').text("Proceed Booking?");
+                $('#action').val("Yes!");
+                $('#operation').val("Submit");
             }
         });
     });
+/*
+    $('userModal').on('click', '#action', function(event) {
+        event.preventDefault();
+        var ticket_id = $("#ticketID").val();
+        $.ajax({
+            method: "POST",
+            url: "./back.booking.payment.php",
+            data: { ticket_id: ticket_id },
+            dataType: "json",
+            success: function(data, textStatus) {
+                if (data.redirect) {
+                    // data.redirect contains the string URL to redirect to
+                    window.location.href = data.redirect;
+                }
+            }
+        });
+    });
+*/
 
 </script>
 
