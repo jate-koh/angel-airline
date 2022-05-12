@@ -80,48 +80,90 @@
                 </fieldset>
             </div>
         </form>  -->
-
+        
         <div class="div-2">
-            <table id="flight_data" >
+        
+            <table id="flight_data" class="table table-bordered table-striped" >
                 <thead>
                     <tr>
                         <th width="20%">Source</th>
                         <th width="10%">Departure</th>
                         <th width="20%">Destination</th>
                         <th width="10%">Arrival Time Est.</th>
+                        <th width="10%">Ticket Price</th>
                         <th width="10%">Book</th>
                     </tr>
                 </thead>
             </table>
         </div>
+        
     </body>
 </html>
 
+<div id="userModal" class="modal fade">
+        <div class="modal-dialog">
+            <form method="post" id="user_form" enctype="multipart/form-data">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Confirm?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label>Ticket ID</label>
+                            <input type="text" name="ticketID" id="ticketID" class="form-control" readonly/>
+                            <br />
+                            <label>Flight ID</label>
+                            <input type="text" name="flightID" id="ticketID" class="form-control" readonly/>
+                            <br />
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" name="action" id="action" class="btn btn-success" value="Submit" />
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
 <script type="text/javascript" language="javascript">
     $(document).ready(function() {
-        $('#addbutton').click(function() {
-            $('#form')[0].reset();
-            $('.modal-title').text("Add");
-            $('#action').val("Add");
-            $('#operation').val("Add");
-        });
 
         var dataTable = $('#flight_data').dataTable({
             "processing":true,
             "serverSide":true,
             "order":[],
             "ajax": {
-                url:"./booking.fetch.php",
+                url:"./func/booking.fetch.php",
                 method:"POST"
             },
-            "columnDefs":[
-                {
-                "target":[0,3,4],
-                "orderable":false
-                }
-            ]
+            "columnDefs":[{
+                "targets":[5],
+                "orderable":false,
+            },],
+            
         });
 
     });
 
+    $(document).on('click', '.update', function() {
+        var ticket_id = $(this).attr("id");
+        $.ajax({
+            url:"./func/booking.fetch.single.php",
+            method:"POST",
+            data: {
+                ticket_id: ticket_id
+            },
+            dataType:"json",
+            success: function(data) {
+                $('#userModal').modal('show');
+                $('#ticketID').val(data.ticket_id);
+                $('.modal-title').text("Booking");
+                $('#action').val("Edit");
+                $('#operation').val("Edit");
+            }
+        });
+    });
+
 </script>
+

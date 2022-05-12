@@ -55,7 +55,14 @@
                             <input class="input1" type=password name="confirm_pw" placeholder="Repeat your password" required>
                         </fieldset>
                         <fieldset class="btnbox">
-                            <input class="button1" type="submit" name="submit"/>
+                            <?php   
+                                if(isset($_SESSION["useruid"])) {
+                                    echo '<input class="button1" type="submit" name="submit"/>';
+                                }
+                                else { 
+                                    echo "You're not supposed to be here (Staff Only!)";
+                                }
+                            ?>
                         </fieldset>
                     </fieldset>
             </div>
