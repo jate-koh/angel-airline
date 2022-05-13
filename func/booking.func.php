@@ -16,4 +16,32 @@
         $stmt -> execute();
         return $stmt -> rowCount();
     }
+    
+    function passportExist($conn,$passportno,) {
+        $sql = 
+        "SELECT * FROM passenger 
+        WHERE PassportNo = ?;";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt,$sql)) {
+            header("location:./back.booking.passport.php?error=stmtfailure");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt,"s",$passportno);
+        mysqli_stmt_execute($stmt);
+        $check = mysqli_stmt_get_result($stmt);
+
+        if(mysqli_fetch_assoc($check)) {
+            $result = true;
+            return $result;
+        }
+        else {
+            $result = false;
+            return $result;
+        }
+
+        mysqli_stmt_close($stmt);
+    }
+
+    
 ?>

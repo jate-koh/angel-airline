@@ -2,7 +2,6 @@
     include("../func/database-connect.func.php");
 
     function emptyInput($username,$password) {
-        $result;
         if(empty($username) || empty($password)) { $result = true; }
         else { $result = false; }
         return $result;

@@ -1,65 +1,74 @@
 <?php
-    include("database-crud.php");
-    include("booking.func.php");
-    $output = array();
-    $query = '';
-    $query .= 
-    "SELECT b.PassportNo,b.Receipt_ID,b.Flight_ID,b.TicketID,s.Airport_ID AS SourceID, s.Airport_Name AS SourceName, s.Country AS SourceCountry, f.Departure,
-    d.Airport_ID AS DestinationID, d.Airport_Name AS DestinationName, d.Country AS DestinationCountry, f.Arrival, b.Ticket_Price
-    FROM `booking detail` b
-    LEFT JOIN flight f
-        ON f.FlightID = b.Flight_ID
-    LEFT JOIN airport s
-        ON f.SourceID = s.Airport_ID
-    LEFT JOIN airport d
-        ON f.DestinationID = d.Airport_ID
-    WHERE b.PassportNo IS NULL ";
+include("database-connect.func.php");
 
-    if(isset($_POST['search']['value'])) {
-        $query .= "OR s.Airport_ID like '%".$_POST['search']['value']."%' ";
-        $query .= "OR s.Airport_Name like '%".$_POST['search']['value']."%' ";
-        $query .= "OR s.Country like '%".$_POST['search']['value']."%' ";
-        $query .= "OR d.Airport_ID like '%".$_POST['search']['value']."%' ";
-        $query .= "OR d.Airport_Name like '%".$_POST['search']['value']."%' ";
-        $query .= "OR d.Country like '%".$_POST['search']['value']."%' ";
-    }
+$sql = '';
+$sql .= 
+"SELECT b.PassportNo,b.Receipt_ID,b.Flight_ID,b.TicketID,s.Airport_ID AS SourceID, s.Airport_Name AS SourceName, s.Country AS SourceCountry, f.Departure,
+d.Airport_ID AS DestinationID, d.Airport_Name AS DestinationName, d.Country AS DestinationCountry, f.Arrival, b.Ticket_Price, f.Gate
+FROM `booking detail` b
+LEFT JOIN flight f
+    ON f.FlightID = b.Flight_ID
+LEFT JOIN airport s
+    ON f.SourceID = s.Airport_ID
+LEFT JOIN airport d
+    ON f.DestinationID = d.Airport_ID
+WHERE PassportNo IS NULL ";
 
-    if(isset($_POST['order'])) {
-        $query .= 'ORDER BY  '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
+
+if(isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $sql .="AND (s.Airport_Name LIKE '%{$search}%' OR d.Airport_Name LIKE '%{$search}%') ";
+}
+
+$sql .= ";";
+$result = mysqli_query($conn,$sql);
+?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles\form.css">
+    <link rel="stylesheet" type="text/css" href="styles\table.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+</head>
+        <?php
+            if($result -> num_rows > 0) {
+        ?> 
+            <table id="flight_data" class="table table-bordered table-striped" >
+                    <thead>
+                        <tr>
+                            <th width="20%">Source</th>
+                            <th width="10%">Departure</th>
+                            <th width="20%">Destination</th>
+                            <th width="10%">Arrival Time Est.</th>
+                            <th width="10%">Ticket Price</th>
+                            <th width="10%"></th>
+                        </tr>
+                    </thead>
+                        <tbody> 
+                        <?php 
+                            if($result -> num_rows > 0) {
+                                while($row = $result -> fetch_assoc()) { 
+                        ?>
+                            <tr>
+                                <td><?php echo $row['SourceName']; ?></td>
+                                <td><?php echo $row['Departure']; ?></td>
+                                <td><?php echo $row['DestinationName']; ?></td>
+                                <td><?php echo $row['Arrival']; ?></td>
+                                <td><?php echo $row['Ticket_Price']; ?></td>
+                                <td><?php echo '<button type="submit" name="ticket_id" value="'.$row["TicketID"].'" class="btn btn-warning btn-xs update">Book</button>' ?></td>
+                            </tr>
+                        <?php   } 
+                            }
+                            mysqli_data_seek($result, 0);
+                        ?>
+                        </tbody>
+                </table>
+<?php        
     }
     else {
-        $query .= "ORDER BY b.Flight_ID DESC ";
+        echo "No data found";
     }
-
-    if($_POST["length"] != -1 ) {
-       //$query .= 'LIMIT '.$_POST['start'].', '.$_POST['length'].' ';
-    }
-    $query .= ";";
-
-    $stmt = $connection -> prepare($query);
-    $stmt -> execute();
-    $result = $stmt -> fetchAll();
-
-    $data = array();
-    $filter_row = $stmt -> rowCount();
-
-    foreach($result as $row) {
-        $sub_array = array();
-        $sub_array[] = $row["SourceName"];
-        $sub_array[] = $row["Departure"];
-        $sub_array[] = $row["DestinationName"];
-        $sub_array[] = $row["Arrival"];
-        $sub_array[] = $row["Ticket_Price"];
-        $sub_array[] = '<button type="button" name="update" id="'.$row["TicketID"].'" class="btn btn-warning btn-xs update">Book</button>';
-        $data[] = $sub_array;
-    }
-
-    $output = array(
-        "draw" => intval($_POST['draw']),
-        "recordsTotal" => $filter_row,
-        "recordsFiltered" => get_all_records(),
-        "data" => $data
-    );
-
-    echo json_encode($output);
 ?>
