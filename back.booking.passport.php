@@ -51,35 +51,35 @@
                 <fieldset class="field0">
                     <fieldset class="field1">
                         <legend class="legend1">Ticket ID</legend>
-                        <input class="input1" type=text name="ticket_id" <?php echo "value=' ".$row['TicketID']." ' "?> readonly>
+                        <input class="input1" type=text name="ticket_id" <?php echo "value='".$row['TicketID']."'"?> readonly>
                     </fieldset>
                     <fieldset class="field2">
                         <legend class="legend1">Flight ID</legend>
-                        <input class="input1" type=text name="flight_id" <?php echo "value=' ".$row['Flight_ID']." ' "?> readonly>
+                        <input class="input1" type=text name="flight_id" <?php echo "value='".$row['Flight_ID']."'"?> readonly>
                     </fieldset> <br>
                     <fieldset class="field1">
                         <legend class="legend1">Source</legend>
-                        <input class="input1" type=text name="source" <?php echo "value=' ".$row['SourceID'].", ".$row['SourceName'].", ".$row['SourceCountry']." ' "?> readonly>
+                        <input class="input1" type=text name="source" <?php echo "value='".$row['SourceID'].",".$row['SourceName'].", ".$row['SourceCountry']." ' "?> readonly>
                     </fieldset>
                     <fieldset class="field2">
                         <legend class="legend1">Time of Departure</legend>
-                        <input class="input1" type=text name="depart" <?php echo "value=' ".$row['Departure']." ' "?> readonly>
+                        <input class="input1" type=text name="depart" <?php echo "value='".$row['Departure']."'"?> readonly>
                     </fieldset> <br>
                     <fieldset class="field1">
                         <legend class="legend1">Destination</legend>
-                        <input class="input1" type=text name="destination" <?php echo "value=' ".$row['DestinationID'].", ".$row['DestinationName'].", ".$row['DestinationCountry']." ' "?> readonly>
+                        <input class="input1" type=text name="destination" <?php echo "value='".$row['DestinationID'].",".$row['DestinationName'].", ".$row['DestinationCountry']." ' "?> readonly>
                     </fieldset>
                     <fieldset class="field2">
                         <legend class="legend1">Est. Time of Arrival</legend>
-                        <input class="input1" type=text name="arrive" <?php echo "value=' ".$row['Arrival']." ' "?> readonly>
+                        <input class="input1" type=text name="arrive" <?php echo "value='".$row['Arrival']."'"?> readonly>
                     </fieldset>
                     <fieldset class="field3">
                         <legend class="legend1">Gate</legend>
-                        <input class="input1" type=text name="gate" <?php echo "value=' ".$row['Gate']." ' "?> readonly>
+                        <input class="input1" type=text name="gate" <?php echo "value='".$row['Gate']."'"?> readonly>
                     </fieldset>
                     <fieldset class="field3">
                         <legend class="legend1">Seat</legend>
-                        <input class="input1" type=text name="seat" <?php echo "value=' ".$row['SeatNo']." ' "?> readonly>
+                        <input class="input1" type=text name="seat" <?php echo "value='".$row['SeatNo']."'"?> readonly>
                     </fieldset>
                 </fieldset>
             </div>
