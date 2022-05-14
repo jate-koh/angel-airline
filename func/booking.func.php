@@ -90,8 +90,10 @@
             $result1 = mysqli_query($conn,$query1);
             $row1 = mysqli_fetch_array($result1);
             $mod = $row1['Modifier'];
+            
             $cal_discount = $subtotal*$mod;
-            $total = $subtotal + $tax;
+            $total = $subtotal + $tax - $cal_discount;
+
             mysqli_stmt_bind_param($stmt,"sssddddsssi",$reciept_id,$method_id,$discount_id,$tax
             ,$subtotal,$cal_discount,$total,$cardno,$cardname,$cardexp,$cvv);
             mysqli_stmt_execute($stmt);
@@ -100,6 +102,7 @@
             $cal_discount = 0;
             $total = $subtotal + $tax;
             $promotion = null;
+
             mysqli_stmt_bind_param($stmt,"sssddddsssi",$reciept_id,$method_id,$promotion,$tax,
             $subtotal,$cal_discount,$total,$cardno,$cardname,$cardexp,$cvv);
             mysqli_stmt_execute($stmt);
@@ -107,6 +110,44 @@
 
         echo "<script> alert('Credit Card Payment Successful'); </script>";
         mysqli_stmt_close($stmt);
+    }
+
+    function init_Bank_Counter($conn,$reciept_id,$method_id,$discount_id,$subtotal,$tax) {
+        $query0 = "INSERT INTO `payment info` (`Receipt_ID`, `Method_Code`, `Promotion_ID`, 
+        `Taxes_Fees`, `SubTotal`, `Discount`, `Total_Paid`, `Remain`, `CardNo`, `CardName`, 
+        `ExpDate`, `CVV`) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
+        $stmt = mysqli_stmt_init($conn);
+        mysqli_stmt_prepare($stmt,$query0);
+        $cardno = null;
+        $cardname = null;
+        $cardexp = null;
+        $cvv = null;
+
+        if($discount_id != "") {
+            $query1 = "SELECT * FROM promotion WHERE Promotion_ID like '%{$discount_id}%';";
+            $result1 = mysqli_query($conn,$query1);
+            $row1 = mysqli_fetch_array($result1);
+            $mod = $row1['Modifier'];
+            
+            $cal_discount = $subtotal*$mod;
+            $total = 0;
+            $remain = $subtotal + $tax - $cal_discount;
+            
+            mysqli_stmt_bind_param($stmt,"sssdddddsssi",$reciept_id,$method_id,$discount_id,$tax
+            ,$subtotal,$cal_discount,$total,$remain,$cardno,$cardname,$cardexp,$cvv);
+            mysqli_stmt_execute($stmt);
+        }
+        else {
+            $cal_discount = 0;
+            $total = 0;
+            $promotion = null;
+            $remain = $subtotal + $tax;
+
+            mysqli_stmt_bind_param($stmt,"sssdddddsssi",$reciept_id,$method_id,$promotion,$tax,
+            $subtotal,$cal_discount,$total,$remain,$cardno,$cardname,$cardexp,$cvv);
+            mysqli_stmt_execute($stmt);
+        }
     }
 
     function book($conn,$ticket_id,$passportno,$reciept_id) {

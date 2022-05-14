@@ -7,10 +7,14 @@
         book($conn,$_POST['ticket_id'],$_POST['passportno'],$_POST['receipt']);
     }
     else if(isset($_POST['scb_submit'])) {
-        echo "scb";
+        init_Bank_Counter($conn,$_POST['receipt'],$_POST['pay_method'],$_POST['discount'],
+        $_POST['subtotal'],$_POST['tax']);
+        book($conn,$_POST['ticket_id'],$_POST['passportno'],$_POST['receipt']);
     }
     else if(isset($_POST['counter_submit'])) {
-        echo "counter";
+        init_Bank_Counter($conn,$_POST['receipt'],$_POST['pay_method'],$_POST['discount'],
+        $_POST['subtotal'],$_POST['tax']);
+        book($conn,$_POST['ticket_id'],$_POST['passportno'],$_POST['receipt']);
     }
     else {
         echo "You're not supposed to be here!";
