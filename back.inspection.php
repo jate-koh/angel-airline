@@ -19,20 +19,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="img\wingicon.ico" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
-    crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles\back\back.menubar.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+    </script>
     <title>Inspection Form</title>
     <!--CSS-->
     <!-- <link rel="stylesheet" href="style-Inspection_Form.css"> -->
     <link rel="stylesheet" type="text/css" href="styles/back/back.form2.css">
+    <script> 
+        $(function(){
+            $("#menu").load("back.menu.php"); 
+         });
+    </script> 
 </head>
 
-<body>
+<body class="active">
+    
+    <div id="menu"></div>
+
     <body>
-    <div class="container my-5">
+    <div class="container my-5" style="margin-top: 2%; padding: 1%;">
     <h2 class="text-center header">SERVICE FORM</h2> 
     <form action="back.inspection.insert.php" method="post">
         <div class="form-group">
@@ -97,7 +108,7 @@
 
     <!-- inspection form -->
 
-    <div class="container my-5">
+    <div class="container my-5" style="margin-top: 2%; padding: 1%;">
     <h2 class="text-center header">INSPECTION FORM</h2> 
     <form action="back.inspection.insert.php" method="post">
          <div class="form-group">

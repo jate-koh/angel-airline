@@ -16,6 +16,7 @@
         header("location:../back.bank.receipt.php?id=$ticket_id");
     }
     else if(isset($_POST['counter_submit'])) {
+        $ticket_id = $_POST['ticket_id'];
         init_Bank_Counter($conn,$_POST['receipt'],$_POST['pay_method'],$_POST['discount'],
         $_POST['subtotal'],$_POST['tax']);
         book($conn,$_POST['ticket_id'],$_POST['passportno'],$_POST['receipt']);

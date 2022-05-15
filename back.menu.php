@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src="https://kit.fontawesome.com/79e310ad42.js" crossorigin="anonymous"></script> 
+<link rel="stylesheet" type="text/css" href="styles\back\back.menubar.css">
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="styles\back\back.menubar.css">
@@ -21,15 +22,17 @@
                                 <li><a href="./back.staff-reg.php">
                                     <span class="item">Staff Register</span>
                                 </a></li>
-                                <li><a href="#">
+                                <li><a href="./back.inspection.php">
                                     <span class="item">Inspection Form</span>
                                 </a></li>
                                 <li><a href="./back.attendance.php">
                                     <span class="item">Clock in/Clock Out</span>
-                                </a></li> ';
+                                <li><a href="./back.flight-data.php">
+                                    <span class="item">Flight Management</span>
+                                </a></li>';
                          }
                         ?>
-                    </ul> <hr>
+                    </ul> <hr> <hr>
                     <ul>
                         <?php
                         if(isset($_SESSION["useruid"])) {
@@ -39,6 +42,9 @@
                                 </a></li>
                                 <li><a href="./back.pilot.report.php">
                                     <span class="item">Pilot Report</span>
+                                </a></li>
+                                <li><a href="./back.maintenance.report.php">
+                                    <span class="item">Maintenance Report</span>
                                 </a></li>';
                         }
                         ?>
@@ -68,10 +74,10 @@
                         </ul> 
                     </div>
                 </div>
-                <!-- Bottom bar  -->
+                <!-- Bottom bar 
                 <div class="bottombar">
                     <h1>Designed by SR., Created by JK., 2022</h1>
-                </div>
+                </div>  -->
             </div>
         </div>
         <!-- Bar Script -->
