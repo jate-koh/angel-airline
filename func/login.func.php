@@ -48,6 +48,7 @@
             session_start();
             $_SESSION["userid"] = $userExist["UserName"];
             $_SESSION["useruid"] = $userExist["UserName"];
+            $_SESSION["staffid"] = $userExist["StaffID"];
             header("location:back.staff-reg.php");
             exit();
         }

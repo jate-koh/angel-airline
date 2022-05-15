@@ -1,0 +1,14 @@
+.container {
+  background-color: rgb(67, 84, 141);
+  width: 40%;
+  border-radius: 1.5rem;
+}
+.header {
+  padding-top: 25px;
+}
+.btn {
+  border-radius: 1.5rem;
+}
+body {
+  font-family: "Baskerville", sans-serif;
+}

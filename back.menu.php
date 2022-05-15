@@ -18,13 +18,13 @@
                         <?php 
                          if(isset($_SESSION["useruid"])) {
                             echo '
-                                <li><a href="back.staff-reg.php">
+                                <li><a href="./back.staff-reg.php">
                                     <span class="item">Staff Register</span>
                                 </a></li>
                                 <li><a href="#">
                                     <span class="item">Inspection Form</span>
                                 </a></li>
-                                <li><a href="#">
+                                <li><a href="./back.attendance.php">
                                     <span class="item">Clock in/Clock Out</span>
                                 </a></li> ';
                          }
@@ -34,11 +34,11 @@
                         <?php
                         if(isset($_SESSION["useruid"])) {
                             echo
-                                '<li><a href="#">
-                                    <span class="item">Crew Report</span>
+                                '<li><a href="./back.income.report.php">
+                                    <span class="item">Flight Income Report</span>
                                 </a></li>
-                                <li><a href="#">
-                                    <span class="item">Flight Report</span>
+                                <li><a href="./back.pilot.report.php">
+                                    <span class="item">Pilot Report</span>
                                 </a></li>';
                         }
                         ?>
