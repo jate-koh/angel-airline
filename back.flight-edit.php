@@ -31,7 +31,7 @@
             <select name="Status" class="form-control form-select" value="<?php echo $row["Status"];?>>
                 <option value="">Please select status</option>
                 <option value="CMS">CMS</option>
-                <option value="Dalayed">Dalayed</option>
+                <option value="Delayed">Delayed</option>
                 <option value="Scheduled">Scheduled</option>
             </select>
         </div>

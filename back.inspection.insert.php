@@ -79,6 +79,7 @@ if(isset($_POST['send']))
         //close connection 
         mysqli_close($conn);
     }
+    include("database-connect.php");
 
 $select9 = "SELECT * FROM `inspection form` ORDER BY Inspection_FormID DESC";
 $result9 = mysqli_query($conn,$select9);
@@ -114,7 +115,7 @@ else
         else if($AirplaneStatus == 'BRK'&& $ServiceID2 != 'none') 
         {
         $insert2 = "INSERT INTO `inspection form`(Inspection_FormID,Inspection_Date,Inspection_Type,Engineer_ID,Airplance_Code,Comment,Service_FormID,Status_Code)
-        VALUES ('$InspectionID','$InspectionDate','$InspectionType','$Engineer_ID','$AirplaneID','$Comment',$ServiceID2,'$AirplaneStatus')";
+        VALUES ('$InspectionID','$InspectionDate','$InspectionType','$Engineer_ID','$AirplaneID','$Comment','$ServiceID2','$AirplaneStatus')";
         
         if(mysqli_query($conn,$insert2)) 
             {
